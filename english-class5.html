@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class V English - కందులాపురం బడి</title>
+    
+    <!-- Anek Telugu Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Anek Telugu', sans-serif;
+            background-color: #006D77; /* Peacock Blue */
+            color: #FFFFFF; /* White text */
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .page-header {
+            text-align: center;
+            padding: 25px 20px;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #005F69, #006D77);
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .school-name {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            color: #FFFFFF;
+        }
+        
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            position: relative;
+            color: #FFFFFF;
+        }
+        
+        .class-info {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            position: relative;
+            color: #FFFFFF;
+        }
+        
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #005F69, #008891);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 2px solid #FFFFFF;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: fit-content;
+        }
+        
+        .back-button:hover {
+            background: linear-gradient(135deg, #008891, #00A3AD);
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Lessons Container */
+        .lessons-container {
+            margin: 40px 0;
+        }
+        
+        .lessons-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #FFFFFF;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .lessons-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(to right, #FFFFFF, #83D4E0);
+            border-radius: 2px;
+        }
+        
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 550px) {
+            .lessons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Lesson Boxes */
+        .lesson-box {
+            background: linear-gradient(135deg, #1a759f, #168aad);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+            color: white;
+            border: 3px solid #FFFFFF;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lesson-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lesson-box:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            border-color: #76c893;
+        }
+        
+        .lesson-box:hover::before {
+            opacity: 1;
+        }
+        
+        .lesson-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            min-width: 60px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #FFFFFF;
+        }
+        
+        .lesson-content {
+            flex-grow: 1;
+        }
+        
+        .lesson-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+        }
+        
+        .lesson-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-style: italic;
+            color: #FFFFFF;
+        }
+        
+        .lesson-icon {
+            font-size: 2rem;
+            color: #FFFFFF;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .lesson-box:hover .lesson-icon {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+        
+        /* Different colors for alternate boxes */
+        .lesson-box:nth-child(odd) {
+            background: linear-gradient(135deg, #1a759f, #168aad);
+        }
+        
+        .lesson-box:nth-child(even) {
+            background: linear-gradient(135deg, #168aad, #1e6091);
+        }
+        
+        /* Footer */
+        .page-footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            background: linear-gradient(135deg, #005F69, #006D77);
+            border-radius: 15px;
+            border: 3px solid #FFFFFF;
+        }
+        
+        .footer-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+        }
+        
+        .footer-text {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+        
+        .page-note {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 20px;
+            font-style: italic;
+            color: #FFFFFF;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .school-name {
+                font-size: 2.5rem;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .lessons-title {
+                font-size: 2rem;
+            }
+            
+            .lesson-title {
+                font-size: 1.5rem;
+            }
+            
+            .lesson-number {
+                font-size: 2.2rem;
+                min-width: 50px;
+                padding: 12px;
+            }
+            
+            .lesson-box {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .page-title {
+                font-size: 1.5rem;
+            }
+            
+            .lessons-title {
+                font-size: 1.7rem;
+            }
+            
+            .lesson-title {
+                font-size: 1.3rem;
+            }
+            
+            .lesson-number {
+                font-size: 1.8rem;
+                min-width: 40px;
+                padding: 10px;
+            }
+            
+            .lesson-box {
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .lesson-icon {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Back Button -->
+        <a href="5th-class.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            <span>5వ తరగతి పేజీకి తిరిగి వెళ్ళండి</span>
+        </a>
+        
+                
+        <!-- Lessons Section -->
+        <div class="lessons-container">
+            <h2 class="lessons-title">ఇంగ్లీష్ పాఠాలు | English Lessons</h2>
+            
+            <div class="lessons-grid">
+                <!-- Lesson 1 -->
+                <a href="lesson1.html" class="lesson-box">
+                    <div class="lesson-number">1</div>
+                    <div class="lesson-content">
+                        <h3 class="lesson-title">MALLIKA GOES TO SCHOOL</h3>
+                        <p class="lesson-subtitle">A story about Mallika's first day at school</p>
+                    </div>
+                    <div class="lesson-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                </a>
+                
+                <!-- Lesson 2 -->
+                <a href="lesson2.html" class="lesson-box">
+                    <div class="lesson-number">2</div>
+                    <div class="lesson-content">
+                        <h3 class="lesson-title">MY SWEET MEMORIES</h3>
+                        <p class="lesson-subtitle">Recalling beautiful childhood memories</p>
+                    </div>
+                    <div class="lesson-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </a>
+                
+                <!-- Lesson 3 -->
+                <a href="lesson3.html" class="lesson-box">
+                    <div class="lesson-number">3</div>
+                    <div class="lesson-content">
+                        <h3 class="lesson-title">THE NECKLACE</h3>
+                        <p class="lesson-subtitle">A classic story about a precious necklace</p>
+                    </div>
+                    <div class="lesson-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                </a>
+                
+                <!-- Lesson 4 -->
+                <a href="lesson4.html" class="lesson-box">
+                    <div class="lesson-number">4</div>
+                    <div class="lesson-content">
+                        <h3 class="lesson-title">KALAM WITH CHILDREN</h3>
+                        <p class="lesson-subtitle">Dr. APJ Abdul Kalam's interaction with children</p>
+                    </div>
+                    <div class="lesson-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                </a>
+                
+                <!-- Lesson 5 -->
+                <a href="lesson5.html" class="lesson-box">
+                    <div class="lesson-number">5</div>
+                    <div class="lesson-content">
+                        <h3 class="lesson-title">THE WONDROUS WOMEN</h3>
+                        <p class="lesson-subtitle">Stories of extraordinary women achievers</p>
+                    </div>
+                    <div class="lesson-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                </a>
+                
+                <!-- Lesson 6 -->
+                <a href="lesson6.html" class="lesson-box">
+                    <div class="lesson-number">6</div>
+                    <div class="lesson-content">
+                        <h3 class="lesson-title">THE WISE JUDGEMENT</h3>
+                        <p class="lesson-subtitle">A story about wisdom and justice</p>
+                    </div>
+                    <div class="lesson-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                </a>
+                
+                <!-- Lesson 7 -->
+                <a href="lesson7.html" class="lesson-box">
+                    <div class="lesson-number">7</div>
+                    <div class="lesson-content">
+                        <h3 class="lesson-title">KABADDI...KABADDI...KABADDI</h3>
+                        <p class="lesson-subtitle">An exciting story about the traditional game</p>
+                    </div>
+                    <div class="lesson-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                </a>
+                
+                <!-- Lesson 8 -->
+                <a href="lesson8.html" class="lesson-box">
+                    <div class="lesson-number">8</div>
+                    <div class="lesson-content">
+                        <h3 class="lesson-title">A BIRTHDAY LETTER</h3>
+                        <p class="lesson-subtitle">A heartwarming letter on a special birthday</p>
+                    </div>
+                    <div class="lesson-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="page-footer">
+            <h3 class="footer-title">5వ తరగతి ఇంగ్లీష్ పాఠాలు</h3>
+            <p class="footer-text">Class V English Textbook - Andhra Pradesh State Syllabus</p>
+            <p class="footer-text">ఏ పాఠంపై క్లిక్ చేసినా ఆ పాఠం యొక్క వివరణాత్మక పేజీకి మీరు నిర్దేశించబడతారు</p>
+            <p class="page-note">గమనిక: ప్రతి పాఠం విద్యార్థుల అర్థం చేసుకోవడానికి సులభమైన భాషలో మరియు ఇంటరాక్టివ్ స్వరూపంలో ఉంటుంది</p>
+        </footer>
+    </div>
+
+    <script>
+        // Interactive JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click animation to lesson boxes
+            const lessonBoxes = document.querySelectorAll('.lesson-box');
+            
+            lessonBoxes.forEach((box, index) => {
+                // Add staggered animation on page load
+                box.style.animation = `fadeInUp 0.6s ease ${index * 0.1}s forwards`;
+                box.style.opacity = '0';
+                
+                // Add click event
+                box.addEventListener('click', function(e) {
+                    // Add click animation
+                    this.style.transform = 'scale(0.98)';
+                    
+                    // Get lesson details
+                    const lessonNumber = this.querySelector('.lesson-number').textContent;
+                    const lessonTitle = this.querySelector('.lesson-title').textContent;
+                    
+                    // Show message in console (for development)
+                    console.log(`Opening Lesson ${lessonNumber}: ${lessonTitle}`);
+                    
+                                        
+                    // Reset animation after delay
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 300);
+                });
+                
+                // Add hover effect
+                box.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.lesson-icon i');
+                    if (icon) {
+                        icon.style.transform = 'rotate(10deg) scale(1.2)';
+                        icon.style.transition = 'transform 0.3s ease';
+                    }
+                    
+                    const number = this.querySelector('.lesson-number');
+                    if (number) {
+                        number.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+                    }
+                });
+                
+                box.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.lesson-icon i');
+                    if (icon) {
+                        icon.style.transform = 'rotate(0) scale(1)';
+                    }
+                    
+                    const number = this.querySelector('.lesson-number');
+                    if (number) {
+                        number.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+                    }
+                });
+            });
+            
+            // Back button functionality
+            const backButton = document.querySelector('.back-button');
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    this.style.transform = 'translateX(-10px)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 300);
+                });
+            }
+            
+            // Header animation
+            const header = document.querySelector('.page-header');
+            if (header) {
+                header.style.animation = 'fadeInDown 0.8s ease';
+            }
+            
+            // Add CSS animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeInDown {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Add page load message
+            console.log('Class V English Lessons Page Loaded Successfully!');
+        });
+    </script>
+</body>
+</html>

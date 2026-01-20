@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="te" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>కందులాపురం బడి - గణిత సాధన కేంద్రం</title>
+    <!-- Anek Telugu font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #E74C3C;
+            --accent-color: #3498DB;
+            --success-color: #27AE60;
+            --warning-color: #F39C12;
+            --light-bg: #F8F9FA;
+            --dark-text: #2C3E50;
+            --light-text: #7F8C8D;
+            --card-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Anek Telugu', sans-serif;
+        }
+        
+       body {
+            font-family: 'Anek Telugu', sans-serif;
+            background-color: #004958; /* Peacock blue */
+            color: white;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #1a2530);
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary-color), var(--warning-color), var(--success-color));
+        }
+        
+        .school-name {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: white;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #ECF0F1;
+            margin-bottom: 15px;
+        }
+        
+        /* Navigation Styles */
+        .nav-container {
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .main-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 18px 25px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--secondary-color);
+            border-bottom-color: var(--secondary-color);
+            background-color: rgba(231, 76, 60, 0.05);
+        }
+        
+        .nav-link i {
+            font-size: 1.2rem;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--accent-color), #2980B9);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(30deg);
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+        }
+        
+        /* Math Practice Cards */
+        .math-practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .practice-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .practice-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: var(--accent-color);
+        }
+        
+        .card-header {
+            padding: 25px 25px 15px;
+            text-align: center;
+        }
+        
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            height: 80px;
+            width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            color: white;
+        }
+        
+        .addition .card-icon { background: var(--success-color); }
+        .subtraction .card-icon { background: var(--accent-color); }
+        .multiplication .card-icon { background: var(--warning-color); }
+        .division .card-icon { background: var(--secondary-color); }
+        
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .card-desc {
+            color: var(--light-text);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .card-body {
+            padding: 0 25px 25px;
+        }
+        
+        .practice-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .practice-btn:hover {
+            background: var(--secondary-color);
+            transform: scale(1.02);
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sidebar-title i {
+            color: var(--accent-color);
+        }
+        
+        /* Weekly Schedule */
+        .schedule-list {
+            list-style: none;
+        }
+        
+        .schedule-item {
+            padding: 15px;
+            margin-bottom: 12px;
+            background: var(--light-bg);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        .schedule-item:hover {
+            transform: translateX(5px);
+            background: #e8f4fc;
+        }
+        
+        .schedule-item.active {
+            border-left-color: var(--secondary-color);
+            background: #ffeaea;
+        }
+        
+        .day {
+            font-weight: 800;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .topic {
+            color: var(--light-text);
+            font-size: 1rem;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        
+        /* Progress Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .stat-box {
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--secondary-color);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-top: 5px;
+            font-weight: 600;
+        }
+        
+        /* Recent Posts */
+        .post-list {
+            list-style: none;
+        }
+        
+        .post-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .post-item:last-child {
+            border-bottom: none;
+        }
+        
+        .post-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .post-date {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
+        
+        .content-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        /* Announcements */
+        .announcement {
+            background: #FFF9E6;
+            border-left: 5px solid var(--warning-color);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+        }
+        
+        .announcement h3 {
+            color: var(--warning-color);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            color: white;
+        }
+        
+        .footer-section p {
+            color: #BDC3C7;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+        
+        .contact-list {
+            list-style: none;
+        }
+        
+        .contact-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #BDC3C7;
+            font-weight: 500;
+        }
+        
+        .contact-list i {
+            color: var(--accent-color);
+            width: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95A5A6;
+            font-weight: 500;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+            
+            .school-name {
+                font-size: 2.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-nav-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .nav-list {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .nav-list.active {
+                display: flex;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .hero {
+                padding: 30px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .math-practice-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .school-name {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+            }
+            
+            .content-title {
+                font-size: 1.6rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="school-name">కందులాపురం బడి</h1>
+            <p class="tagline">గణిత సాధన కేంద్రం - ప్రతిరోజు 10 నిమిషాలు, గణితంలో ముందుకు!</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="main-nav">
+            <button class="mobile-nav-toggle" id="mobileNavToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-list" id="mainNav">
+                <li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home"></i> ముంగిలి</a></li>
+                <li class="nav-item"><a href="#practice" class="nav-link"><i class="fas fa-calculator"></i> సాధనం</a></li>
+                                <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-phone-alt"></i> సంప్రదింపు</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero fade-in" id="home">
+            <h1>స్వాగతం! గణిత ప్రపంచానికి</h1>
+            <p>ప్రతిరోజు 10 నిమిషాలు గణిత సాధన చేయడం వలన మీ బిడ్డల గణిత నైపుణ్యం 90% మెరుగవుతుంది. ప్రత్యేకంగా తరగతి 4, 5 విద్యార్థుల కోసం రూపొందించబడిన సాధన ప్రణాళిక.</p>
+            <a href="#practice" class="practice-btn" style="max-width: 300px; margin: 0 auto;">
+                <i class="fas fa-play-circle"></i> సాధన ప్రారంభించండి
+            </a>
+        </section>
+
+        <!-- Math Practice Section -->
+        <main class="main-content fade-in" id="practice">
+            <h2 class="content-title"><i class="fas fa-calculator"></i> గణిత సాధనాలు</h2>
+            <p style="margin-bottom: 25px; font-size: 1.2rem; color: var(--light-text); font-weight: 500;">కింది బటన్లను నొక్కి సంబంధిత గణిత సాధన ప్రారంభించండి. ప్రతి సాధనంలో 10 ప్రశ్నలు ఉంటాయి.</p>
+            
+            <div class="math-practice-grid">
+                <!-- Addition Card -->
+                <div class="practice-card addition">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <h3 class="card-title">సంకలన సాధనం</h3>
+                        <p class="card-desc">తరగతి 4-5 విద్యార్థుల కోసం సంకలన సాధన</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="G:\My Drive\KANDULAPURAM BADI\WEBSITE FOLDER\additions.html" class="practice-btn" target="_blank">
+                            <i class="fas fa-play"></i> సాధన ప్రారంభించండి
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Subtraction Card -->
+                <div class="practice-card subtraction">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-minus"></i>
+                        </div>
+                        <h3 class="card-title">వ్యవకలన సాధనం</h3>
+                        <p class="card-desc">2, 3, 4 అంకెల సంఖ్యల వ్యవకలనం</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="G:\My Drive\KANDULAPURAM BADI\WEBSITE FOLDER\subtractions.html" class="practice-btn" target="_blank">
+                            <i class="fas fa-play"></i> సాధన ప్రారంభించండి
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Multiplication Card -->
+                <div class="practice-card multiplication">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <h3 class="card-title">గుణకార సాధనం</h3>
+                        <p class="card-desc">2, 3 అంకెల సంఖ్యల గుణకారం</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="G:\My Drive\KANDULAPURAM BADI\WEBSITE FOLDER\multiplications.html" class="practice-btn" target="_blank">
+                            <i class="fas fa-play"></i> సాధన ప్రారంభించండి
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Division Card -->
+                <div class="practice-card division">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-divide"></i>
+                        </div>
+                        <h3 class="card-title">భాగహార సాధనం</h3>
+                        <p class="card-desc">1, 2 అంకెల సంఖ్యలతో భాగహారం</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="G:\My Drive\KANDULAPURAM BADI\WEBSITE FOLDER\divisions.html" class="practice-btn" target="_blank">
+                            <i class="fas fa-play"></i> సాధన ప్రారంభించండి
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+              
+            <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>కందులాపురం బడి</h3>
+                <p>గణిత ప్రతిభలను రూపుదిద్దే మా లక్ష్యంతో, తరగతి 4-5 విద్యార్థుల కోసం ప్రత్యేక గణిత సాధన కేంద్రాన్ని ఏర్పాటు చేశాము. ప్రతిరోజు సాధన ద్వారా విద్యార్థులు గణితంలో పట్టు సాధించేలా చూస్తున్నాము.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>సంప్రదింపు సమాచారం</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-map-marker-alt"></i> కందులాపురం బడి, కందులాపురం, కంభం మండలం మార్కాపురం జిల్లా ఆంధ్రప్రదేశ్</li>
+                    <li><i class="fas fa-phone"></i> +91 9100237100</li>
+                    <li><i class="fas fa-envelope"></i> mppskandulapuram@gmail.com</li>
+                    <li><i class="fas fa-clock"></i> తరగతి సమయం: ఉదయం 9:00 -  సాయంత్రం 4:00</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>QUICK LINKS</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-chevron-right"></i> <a href="#practice" style="color: #BDC3C7; text-decoration: none;">గణిత సాధనాలు</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#schedule" style="color: #BDC3C7; text-decoration: none;">వారపు కార్యక్రమం</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#progress" style="color: #BDC3C7; text-decoration: none;">పురోగతి వివరాలు</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#announcements" style="color: #BDC3C7; text-decoration: none;">ప్రకటనలు</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2025 కందులపురం బడి - గణిత సాధన కేంద్రం. అన్ని హక్కులూ ప్రత్యేకించబడ్డాయి.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileNavToggle = document.getElementById('mobileNavToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileNavToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        mainNav.classList.remove('active');
+                        mobileNavToggle.querySelector('i').classList.add('fa-bars');
+                        mobileNavToggle.querySelector('i').classList.remove('fa-times');
+                    }
+                }
+            });
+        });
+        
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', function() {
+            if(window.scrollY > 300) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Active Navigation Highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section, main');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if(window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        
+            });
+        }
+        
+        // Update progress stats (example - in real implementation, fetch from backend)
+        function updateStats() {
+            // This is sample data - replace with actual data from your system
+            const totalStudents = 1250 + Math.floor(Math.random() * 50);
+            const totalQuestions = 15420 + Math.floor(Math.random() * 500);
+            const certificates = 28 + Math.floor(Math.random() * 5);
+            
+            document.querySelector('.stat-value:nth-child(1)').textContent = totalStudents.toLocaleString();
+            document.querySelector('.stat-value:nth-child(2)').textContent = totalQuestions.toLocaleString();
+            document.querySelector('.stat-value:nth-child(4)').textContent = certificates;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateActiveDay();
+            updateStats();
+            
+            // Add fade-in animation to elements as they scroll into view
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.main-content, .practice-card').forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Replace YOUR_LINK_HERE with actual links
+            const links = {
+                addition: 'https://drive.google.com/file/d/1ZsiVOeBMo3WTfBRUY6KyajDuW2e8oyFX/view?usp=drive_link',
+                subtraction: 'https://drive.google.com/file/d/11MReltRZThhpOASJe-pCSfnbMWwmMrA3/view?usp=drive_link',
+                multiplication: 'https://docs.google.com/document/d/1BiL5UiHR2X8dWrZip7gNE1gZ5uL0ryRrj1KMu_0lBnI/edit?usp=drive_link',
+                division: 'https://docs.google.com/document/d/1KoLxmZIxk1m1EkgyQxb3auZBocnV9Qufd24sCAqTRsc/edit?usp=drive_link'
+            };
+            
+            // Store links in localStorage for easy updating
+            localStorage.setItem('mathPracticeLinks', JSON.stringify(links));
+        });
+        
+        // Update date in recent posts
+        function updateDates() {
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const dateStr = today.toLocaleDateString('te-IN', options);
+            
+            // Update any date elements if needed
+        }
+        
+        // Auto-update schedule every day
+        setInterval(updateActiveDay, 86400000); // 24 hours
+        setInterval(updateStats, 3600000); // 1 hour
+    </script>
+</body>
+</html>

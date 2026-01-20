@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics for Class 5</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Anek Telugu', sans-serif;
+            background-color: #004958; /* Peacock blue */
+            color: white;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .math-topic {
+            background-color: rgba(0, 70, 90, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .math-topic:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .topic-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .topic-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            width: 70px;
+            height: 70px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .topic-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        
+        .topic-content {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .example {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        .example-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .example-problem {
+            font-size: 1.3rem;
+            text-align: center;
+            padding: 8px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+        
+        .example-solution {
+            font-size: 1.3rem;
+            text-align: center;
+            padding: 8px;
+            font-weight: 600;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .topic-title {
+                font-size: 1.7rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>గణితం - తరగతి 5</h1>
+            <p class="subtitle">Mathematics for Class 5 - Four Basic Operations</p>
+        </header>
+        
+        <main>
+            <div class="content-grid">
+                <!-- Addition -->
+                <div class="math-topic">
+                    <div class="topic-header">
+                        <div class="topic-icon">+</div>
+                        <h2 class="topic-title">ADDITION</h2>
+                    </div>
+                    <p class="topic-content">రెండు లేదా అంతకంటే ఎక్కువ సంఖ్యలను కలిపి వాటి మొత్తాన్ని కనుగొనే ప్రక్రియను కూడిక అంటారు. జోడించబడుతున్న సంఖ్యలను కూడికలు అంటారు, మరియు ఫలితాన్ని మొత్తం అంటారు.</p>
+                    <div class="example">
+                        <div class="example-title">Example:</div>
+                        <div class="example-problem">245 + 178 = ?</div>
+                        <div class="example-solution">423</div>
+                    </div>
+                </div>
+                
+                <!-- Subtraction -->
+                <div class="math-topic">
+                    <div class="topic-header">
+                        <div class="topic-icon">−</div>
+                        <h2 class="topic-title">SUBTRACTION</h2>
+                    </div>
+                    <p class="topic-content">తీసివేత అంటే ఒక సంఖ్య నుండి మరొక సంఖ్యను తీసివేయడం. మనం తీసివేసే సంఖ్య మినుఎండ్, తీసివేయబడే సంఖ్య ఉపసంహరణ, మరియు ఫలితం వ్యత్యాసం..</p>
+                    <div class="example">
+                        <div class="example-title">Example:</div>
+                        <div class="example-problem">593 - 276 = ?</div>
+                        <div class="example-solution">317</div>
+                    </div>
+                </div>
+                
+                <!-- Multiplication -->
+                <div class="math-topic">
+                    <div class="topic-header">
+                        <div class="topic-icon">×</div>
+                        <h2 class="topic-title">MULTIPLICATION</h2>
+                    </div>
+                    <p class="topic-content">గుణకారం అంటే పునరావృత సంకలనం. గుణించబడే సంఖ్యలను కారణాంకాలు అంటారు, మరియు ఫలితాన్ని లబ్ధం అంటారు. ఒకే సంఖ్యను అనేకసార్లు జోడించడానికి ఇది వేగవంతమైన మార్గం..</p>
+                    <div class="example">
+                        <div class="example-title">Example:</div>
+                        <div class="example-problem">24 × 5 = ?</div>
+                        <div class="example-solution">120</div>
+                    </div>
+                </div>
+                
+                <!-- Division -->
+                <div class="math-topic">
+                    <div class="topic-header">
+                        <div class="topic-icon">÷</div>
+                        <h2 class="topic-title">DIVISION</h2>
+                    </div>
+                    <p class="topic-content">భాగహారం అంటే ఒక సంఖ్యను సమాన భాగాలుగా విభజించే ప్రక్రియ. భాగించబడే సంఖ్య భాగహారం, మనం భాగించే సంఖ్య భాగహారం, మరియు ఫలితం గుణకం..</p>
+                    <div class="example">
+                        <div class="example-title">Example:</div>
+                        <div class="example-problem">156 ÷ 12 = ?</div>
+                        <div class="example-solution">13</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>గణితం మన జీవితంలో ప్రతి రోజూ ఉపయోగించే ముఖ్యమైన నైపుణ్యం | Mathematics is an important skill we use every day in our lives.</p>
+            <p style="margin-top: 10px;">తరగతి 5 | Class 5</p>
+        </footer>
+    </div>
+</body>
+</html>
