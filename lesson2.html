@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #FF6B6B;
+            --primary: #8A2BE2; /* Purple primary color */
             --secondary: #4ECDC4;
             --accent: #FFD166;
             --light: #F7FFF7;
             --dark: #2F2F2F;
             --telugu-color: #6A0572;
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
         }
         
         * {
@@ -25,7 +26,7 @@
         
         body {
             font-family: 'Anek Telugu', sans-serif;
-            background: linear-gradient(135deg, #E0F7FA 0%, #FCE4EC 100%);
+            background: #f9f7ff; /* Light purple background instead of gradient */
             color: var(--dark);
             line-height: 1.6;
             padding: 20px;
@@ -36,15 +37,15 @@
             max-width: 1200px;
             margin: 0 auto;
             background-color: white;
-            border-radius: 20px;
+            border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             overflow: hidden;
         }
         
-        /* Header */
-        header {
+        /* Header - Purple */
+        .header {
             text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #8A2BE2, #9D4EDD); /* Purple gradient */
             color: white;
             padding: 30px;
             position: relative;
@@ -64,27 +65,29 @@
         }
         
         .class-info {
-            background-color: var(--accent);
-            color: var(--dark);
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
             padding: 8px 25px;
             border-radius: 30px;
             display: inline-block;
             font-weight: bold;
             font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
         
-        /* Main Navigation */
-        .main-nav {
-            background-color: #E8F5E9;
-            padding: 15px;
+        /* Back Navigation */
+        .back-nav {
+            background-color: #f0e6ff; /* Light purple */
+            padding: 15px 30px;
+            border-bottom: 3px solid var(--primary);
             display: flex;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             gap: 10px;
-            justify-content: center;
-            border-bottom: 3px solid var(--primary);
         }
         
-        .nav-btn {
+        .back-btn {
             padding: 10px 20px;
             background-color: white;
             border: 2px solid var(--primary);
@@ -97,12 +100,53 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            text-decoration: none;
         }
         
-        .nav-btn:hover, .nav-btn.active {
+        .back-btn:hover {
             background-color: var(--primary);
             color: white;
             transform: translateY(-3px);
+        }
+        
+        .lesson-info {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        /* Lesson Navigation - Necklace Pattern */
+        .lesson-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f8f4ff; /* Light purple background */
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .lesson-btn {
+            padding: 12px 24px;
+            background-color: white;
+            border: 2px solid var(--primary); /* Purple border */
+            border-radius: 25px;
+            font-family: 'Anek Telugu', sans-serif;
+            font-weight: bold;
+            color: var(--dark);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        
+        .lesson-btn:hover, .lesson-btn.active {
+            background-color: var(--primary); /* Purple background */
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3); /* Purple shadow */
         }
         
         /* Main Content */
@@ -126,7 +170,7 @@
         }
         
         h2 {
-            color: var(--secondary);
+            color: var(--primary); /* Purple heading */
             border-bottom: 3px solid var(--accent);
             padding-bottom: 10px;
             margin-bottom: 25px;
@@ -137,14 +181,38 @@
         }
         
         h3 {
-            color: var(--primary);
+            color: var(--primary); /* Purple subheading */
             margin: 20px 0 15px 0;
             font-size: 1.4rem;
         }
         
-        /* Diary Entry Styling */
+        /* Story Content */
+        .story-box {
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 6px solid var(--primary); /* Purple border */
+            box-shadow: var(--shadow);
+        }
+        
+        .story-title {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed var(--accent);
+        }
+        
+        .story-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        /* Diary Entry Styling - Removed yellow background */
         .diary-entry {
-            background-color: #FFF9C4;
+            background-color: #f9f7ff; /* Light purple instead of yellow */
             border-left: 5px solid var(--primary);
             padding: 25px;
             margin: 30px 0;
@@ -155,7 +223,7 @@
         
         .date-header {
             font-weight: bold;
-            color: var(--secondary);
+            color: var(--primary); /* Purple date header */
             font-size: 1.3rem;
             margin-bottom: 15px;
             display: flex;
@@ -165,15 +233,9 @@
             border-bottom: 2px dashed var(--accent);
         }
         
-        /* Story Text with Highlighted Words */
-        .story-text {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            text-align: justify;
-        }
-        
+        /* Highlighted Words */
         .highlight-word {
-            background-color: #E3F2FD;
+            background-color: #e6e6ff; /* Light purple highlight */
             padding: 2px 6px;
             border-radius: 4px;
             border-bottom: 2px dashed var(--primary);
@@ -184,16 +246,16 @@
         }
         
         .highlight-word:hover {
-            background-color: #BBDEFB;
+            background-color: #d1d1ff; /* Darker purple on hover */
             transform: translateY(-2px);
         }
         
-        /* Color coding based on word length */
-        .word-3 { background-color: #FFF9C4; } /* 3 letters */
-        .word-4 { background-color: #C8E6C9; } /* 4 letters */
-        .word-5 { background-color: #BBDEFB; } /* 5 letters */
-        .word-6 { background-color: #E1BEE7; } /* 6 letters */
-        .word-7 { background-color: #FFCCBC; } /* 7+ letters */
+        /* Color coding based on word length - Adjusted colors */
+        .word-3 { background-color: #e6f7ff; } /* Light blue */
+        .word-4 { background-color: #e6ffe6; } /* Light green */
+        .word-5 { background-color: #fff0e6; } /* Light orange */
+        .word-6 { background-color: #f0e6ff; } /* Light purple */
+        .word-7 { background-color: #ffe6e6; } /* Light red */
         
         /* Vocabulary Cards */
         .vocab-grid {
@@ -207,7 +269,7 @@
             background-color: var(--light);
             border-radius: 12px;
             padding: 20px;
-            border-left: 6px solid var(--secondary);
+            border-left: 6px solid var(--primary); /* Purple border */
             transition: transform 0.3s;
             box-shadow: var(--shadow);
         }
@@ -226,12 +288,12 @@
         .word {
             font-weight: bold;
             font-size: 1.4rem;
-            color: var(--secondary);
+            color: var(--primary); /* Purple word */
         }
         
         .sound-btn {
-            background-color: var(--accent);
-            color: var(--dark);
+            background-color: var(--primary); /* Purple button */
+            color: white;
             border: none;
             width: 36px;
             height: 36px;
@@ -245,7 +307,7 @@
         }
         
         .sound-btn:hover {
-            background-color: var(--secondary);
+            background-color: #7B1FA2; /* Darker purple */
             transform: scale(1.1);
             color: white;
         }
@@ -273,14 +335,14 @@
         .word-length {
             display: inline-block;
             padding: 2px 8px;
-            background-color: var(--accent);
-            color: var(--dark);
+            background-color: var(--primary); /* Purple badge */
+            color: white;
             border-radius: 10px;
             font-size: 0.8rem;
             margin-left: 8px;
         }
         
-        /* Grammar Tables */
+        /* Tables */
         .grammar-table {
             width: 100%;
             border-collapse: collapse;
@@ -292,7 +354,7 @@
         }
         
         .grammar-table th {
-            background-color: var(--secondary);
+            background-color: var(--primary); /* Purple header */
             color: white;
             padding: 15px;
             text-align: left;
@@ -304,7 +366,7 @@
         }
         
         .grammar-table tr:hover {
-            background-color: #f5f5f5;
+            background-color: #f9f7ff; /* Light purple hover */
         }
         
         /* Word Modal */
@@ -349,8 +411,26 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: var(--dark);
+            background-color: var(--primary); /* Purple footer */
             color: white;
+        }
+        
+        /* Lesson Sections */
+        .lesson-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f7ff; /* Light purple background */
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--primary); /* Purple border */
+        }
+        
+        /* Exercises */
+        .exercise-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
         }
         
         /* Responsive Design */
@@ -359,12 +439,12 @@
                 font-size: 2.2rem;
             }
             
-            .main-nav {
+            .lesson-nav {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .nav-btn {
+            .lesson-btn {
                 width: 90%;
                 justify-content: center;
             }
@@ -380,125 +460,182 @@
             .diary-entry {
                 padding: 15px;
             }
+            
+            .grammar-table {
+                display: block;
+                overflow-x: auto;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-		<h1>కందులాపురం బడి </h1>
+        <div class="header">
+            <h1>కందులాపురం బడి</h1>
             <h1>📓 My Sweet Memories</h1>
             <div class="subtitle">Santhosh's Summer Vacation Diary - Interactive Learning</div>
             <div class="class-info">Class V - English with Telugu Meanings</div>
-        </header>
+        </div>
         
-<body>
-    <!-- Navigation Menu -->
-    <div class="navigation">
-        <a href="english-class5.html" class="nav-btn back-btn">← ఇంగ్లిష్ పాఠాల విషయసూచిక [వెనుకకు ]</a>
-           </div>
-      
-</body>
-
-
-        <nav class="main-nav">
-            <button class="nav-btn active" data-section="story">
+        <div class="back-nav">
+            <a href="english-class5.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> ఇంగ్లిష్ పాఠాల విషయసూచిక
+            </a>
+            <div class="lesson-info">Lesson 2: My Sweet Memories</div>
+        </div>
+        
+        <!-- Lesson Navigation - Necklace Pattern -->
+        <div class="lesson-nav">
+            <button class="lesson-btn active" data-section="story">
                 <i class="fas fa-book-open"></i> Story
             </button>
-            <button class="nav-btn" data-section="vocabulary">
-                <i class="fas fa-book"></i> All Words
+            <button class="lesson-btn" data-section="vocabulary">
+                <i class="fas fa-book"></i> Vocabulary
             </button>
-            <button class="nav-btn" data-section="verbs">
+            <button class="lesson-btn" data-section="verbs">
                 <i class="fas fa-running"></i> Verbs
             </button>
-            <button class="nav-btn" data-section="opposites">
+            <button class="lesson-btn" data-section="opposites">
                 <i class="fas fa-exchange-alt"></i> Opposites
             </button>
-            <button class="nav-btn" data-section="singular-plural">
+            <button class="lesson-btn" data-section="singular-plural">
                 <i class="fas fa-copy"></i> Singular/Plural
             </button>
-        </nav>
+            <button class="lesson-btn" data-section="exercises">
+                <i class="fas fa-pencil-alt"></i> Exercises
+            </button>
+        </div>
         
         <div class="content-area">
             <!-- Story Section -->
             <section id="story" class="content-section active">
-                <h2><i class="fas fa-book-open"></i> The Diary</h2>
-                <div class="story-text" id="storyText">
-                    <!-- Story text will be inserted by JavaScript -->
+                <div class="story-box">
+                    <h2><i class="fas fa-book-open"></i> The Diary Story</h2>
+                    <div class="story-text" id="storyText">
+                        <!-- Story text will be inserted by JavaScript -->
+                    </div>
                 </div>
             </section>
             
-            <!-- All Words Section -->
+            <!-- Vocabulary Section -->
             <section id="vocabulary" class="content-section">
-                <h2><i class="fas fa-book"></i> All Highlighted Words</h2>
-                <p>Words are color-coded by length: <span style="background-color:#FFF9C4; padding:2px 6px;">3 letters</span> <span style="background-color:#C8E6C9; padding:2px 6px;">4 letters</span> <span style="background-color:#BBDEFB; padding:2px 6px;">5 letters</span> <span style="background-color:#E1BEE7; padding:2px 6px;">6 letters</span> <span style="background-color:#FFCCBC; padding:2px 6px;">7+ letters</span></p>
-                
-                <div class="vocab-grid" id="allWordsGrid">
-                    <!-- All words will be inserted by JavaScript -->
+                <div class="lesson-section">
+                    <h2><i class="fas fa-book"></i> Vocabulary from the Diary</h2>
+                    <p>Words are color-coded by length: 
+                        <span style="background-color:#e6f7ff; padding:2px 6px;">3 letters</span> 
+                        <span style="background-color:#e6ffe6; padding:2px 6px;">4 letters</span> 
+                        <span style="background-color:#fff0e6; padding:2px 6px;">5 letters</span> 
+                        <span style="background-color:#f0e6ff; padding:2px 6px;">6 letters</span> 
+                        <span style="background-color:#ffe6e6; padding:2px 6px;">7+ letters</span>
+                    </p>
+                    
+                    <div class="vocab-grid" id="allWordsGrid">
+                        <!-- All words will be inserted by JavaScript -->
+                    </div>
                 </div>
             </section>
             
             <!-- Verbs Section -->
             <section id="verbs" class="content-section">
-                <h2><i class="fas fa-running"></i> Verbs from the Diary</h2>
-                
-                <table class="grammar-table">
-                    <thead>
-                        <tr>
-                            <th>Verb</th>
-                            <th>Telugu Meaning</th>
-                            <th>Pronunciation</th>
-                            <th>Example from Diary</th>
-                        </tr>
-                    </thead>
-                    <tbody id="verbsTable">
-                        <!-- Verbs will be inserted by JavaScript -->
-                    </tbody>
-                </table>
+                <div class="lesson-section">
+                    <h2><i class="fas fa-running"></i> Verbs from the Diary</h2>
+                    
+                    <table class="grammar-table">
+                        <thead>
+                            <tr>
+                                <th>Verb</th>
+                                <th>Telugu Meaning</th>
+                                <th>Pronunciation</th>
+                                <th>Example from Diary</th>
+                            </tr>
+                        </thead>
+                        <tbody id="verbsTable">
+                            <!-- Verbs will be inserted by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
             </section>
             
             <!-- Opposites Section -->
             <section id="opposites" class="content-section">
-                <h2><i class="fas fa-exchange-alt"></i> Opposite Words</h2>
-                
-                <table class="grammar-table">
-                    <thead>
-                        <tr>
-                            <th>Word</th>
-                            <th>Telugu Meaning</th>
-                            <th>Opposite Word</th>
-                            <th>Telugu Meaning of Opposite</th>
-                        </tr>
-                    </thead>
-                    <tbody id="oppositesTable">
-                        <!-- Opposites will be inserted by JavaScript -->
-                    </tbody>
-                </table>
+                <div class="lesson-section">
+                    <h2><i class="fas fa-exchange-alt"></i> Opposite Words</h2>
+                    
+                    <table class="grammar-table">
+                        <thead>
+                            <tr>
+                                <th>Word</th>
+                                <th>Telugu Meaning</th>
+                                <th>Opposite Word</th>
+                                <th>Telugu Meaning of Opposite</th>
+                            </tr>
+                        </thead>
+                        <tbody id="oppositesTable">
+                            <!-- Opposites will be inserted by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
             </section>
             
             <!-- Singular/Plural Section -->
             <section id="singular-plural" class="content-section">
-                <h2><i class="fas fa-copy"></i> Singular and Plural Forms</h2>
-                
-                <table class="grammar-table">
-                    <thead>
-                        <tr>
-                            <th>Singular</th>
-                            <th>Telugu Meaning</th>
-                            <th>Plural</th>
-                            <th>Telugu Meaning</th>
-                        </tr>
-                    </thead>
-                    <tbody id="singularPluralTable">
-                        <!-- Singular/Plural will be inserted by JavaScript -->
-                    </tbody>
-                </table>
+                <div class="lesson-section">
+                    <h2><i class="fas fa-copy"></i> Singular and Plural Forms</h2>
+                    
+                    <table class="grammar-table">
+                        <thead>
+                            <tr>
+                                <th>Singular</th>
+                                <th>Telugu Meaning</th>
+                                <th>Plural</th>
+                                <th>Telugu Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody id="singularPluralTable">
+                            <!-- Singular/Plural will be inserted by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Exercises Section -->
+            <section id="exercises" class="content-section">
+                <div class="lesson-section">
+                    <h2><i class="fas fa-pencil-alt"></i> Practice Exercises</h2>
+                    
+                    <div class="exercise-box">
+                        <h3>Exercise 1: Fill in the blanks</h3>
+                        <p>1. Santhosh was very ______ to visit his grandparents' village.</p>
+                        <p>2. The scarecrows were arranged to ______ away the birds.</p>
+                        <p>3. The mango tree was heavily ______ with fruit.</p>
+                        <p>4. The cuckoo's song was perhaps the most ______.</p>
+                        <p>5. Santhosh ______ forward to his next visit.</p>
+                    </div>
+                    
+                    <div class="exercise-box">
+                        <h3>Exercise 2: True or False</h3>
+                        <p>1. Santhosh traveled to the village by train. (False)</p>
+                        <p>2. The village had lots of traffic. (False)</p>
+                        <p>3. Pallavi showed Santhosh how to play with a tyre and stick. (True)</p>
+                        <p>4. Santhosh knew how to swim. (False)</p>
+                        <p>5. Santhosh watched television during his village stay. (False)</p>
+                    </div>
+                    
+                    <div class="exercise-box">
+                        <h3>Exercise 3: Answer the questions</h3>
+                        <p>1. Why was Santhosh excited about visiting his grandparents' village?</p>
+                        <p>2. What did Santhosh see in the paddy fields during the journey?</p>
+                        <p>3. What were the children doing in the canal?</p>
+                        <p>4. What did Santhosh realize about his stay in the village?</p>
+                    </div>
+                </div>
             </section>
         </div>
         
         <footer>
             <p>Class V English Reader - My Sweet Memories</p>
             <p>Interactive Learning Page with Telugu Meanings</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Click on any highlighted word to see its meaning and pronunciation</p>
         </footer>
     </div>
 
@@ -1005,10 +1142,10 @@ next visit.`;
             displaySingularPlural();
             
             // Setup navigation
-            document.querySelectorAll('.nav-btn').forEach(btn => {
+            document.querySelectorAll('.lesson-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     // Remove active class from all buttons
-                    document.querySelectorAll('.nav-btn').forEach(b => {
+                    document.querySelectorAll('.lesson-btn').forEach(b => {
                         b.classList.remove('active');
                     });
                     
@@ -1023,6 +1160,9 @@ next visit.`;
                     // Show selected section
                     const sectionId = this.getAttribute('data-section');
                     document.getElementById(sectionId).classList.add('active');
+                    
+                    // Scroll to top of content area
+                    document.querySelector('.content-area').scrollIntoView({ behavior: 'smooth' });
                 });
             });
             
@@ -1261,7 +1401,7 @@ next visit.`;
             );
             
             const modalContent = document.getElementById('modalContent');
-            let html = `<div style="font-size: 1.8rem; font-weight: bold; color: var(--secondary); margin-bottom: 15px;">${word}</div>`;
+            let html = `<div style="font-size: 1.8rem; font-weight: bold; color: var(--primary); margin-bottom: 15px;">${word}</div>`;
             
             if (wordData) {
                 html += `
@@ -1291,7 +1431,7 @@ next visit.`;
                 
                 html += `
                     <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #eee;">
-                        <div style="color: var(--accent); font-weight: bold; margin-bottom: 8px;">Opposite Word:</div>
+                        <div style="color: var(--primary); font-weight: bold; margin-bottom: 8px;">Opposite Word:</div>
                         <div><strong>${oppositeWord}</strong> - ${oppositeTelugu}</div>
                     </div>
                 `;
@@ -1304,7 +1444,7 @@ next visit.`;
                 
                 html += `
                     <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #eee;">
-                        <div style="color: var(--telugu-color); font-weight: bold; margin-bottom: 8px;">Singular/Plural:</div>
+                        <div style="color: var(--primary); font-weight: bold; margin-bottom: 8px;">Singular/Plural:</div>
                         <div><strong>Singular:</strong> ${singular} (${singularPluralData.teluguSingular})</div>
                         <div><strong>Plural:</strong> ${plural} (${singularPluralData.teluguPlural})</div>
                     </div>
