@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mallika Goes to School - Class V Interactive Learning</title>
+    <title>Mallika Goes to School - Class V English Interactive Learning</title>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #4CAF50;
-            --secondary: #2196F3;
+            --primary: #6A1B9A;
+            --secondary: #AB47BC;
             --accent: #FF9800;
-            --light: #F9F9F9;
-            --dark: #333;
-            --telugu-color: #D32F2F;
+            --light: #F3E5F5;
+            --dark: #4A148C;
+            --telugu-color: #C2185B;
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
@@ -25,7 +25,7 @@
         
         body {
             font-family: 'Anek Telugu', sans-serif;
-            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            background: linear-gradient(135deg, #EDE7F6 0%, #F3E5F5 100%);
             color: var(--dark);
             line-height: 1.6;
             padding: 20px;
@@ -65,7 +65,7 @@
         
         .class-info {
             background-color: var(--accent);
-            color: white;
+            color: var(--dark);
             padding: 8px 25px;
             border-radius: 30px;
             display: inline-block;
@@ -75,7 +75,7 @@
         
         /* Main Navigation */
         .main-nav {
-            background-color: #f1f8e9;
+            background-color: #E1BEE7;
             padding: 15px;
             display: flex;
             flex-wrap: wrap;
@@ -146,12 +146,17 @@
         .story-text {
             font-size: 1.15rem;
             line-height: 1.8;
-            margin-bottom: 30px;
             text-align: justify;
+            margin-bottom: 30px;
+        }
+        
+        .story-text p {
+            margin-bottom: 20px;
+            text-indent: 40px;
         }
         
         .highlight-word {
-            background-color: #E3F2FD;
+            background-color: #E1BEE7;
             padding: 2px 6px;
             border-radius: 4px;
             border-bottom: 2px dashed var(--primary);
@@ -162,7 +167,7 @@
         }
         
         .highlight-word:hover {
-            background-color: #BBDEFB;
+            background-color: #CE93D8;
             transform: translateY(-2px);
         }
         
@@ -170,8 +175,8 @@
         .word-3 { background-color: #FFF9C4; } /* 3 letters */
         .word-4 { background-color: #C8E6C9; } /* 4 letters */
         .word-5 { background-color: #BBDEFB; } /* 5 letters */
-        .word-6 { background-color: #E1BEE7; } /* 6 letters */
-        .word-7 { background-color: #FFCCBC; } /* 7+ letters */
+        .word-6 { background-color: #FFCCBC; } /* 6 letters */
+        .word-7 { background-color: #D1C4E9; } /* 7+ letters */
         
         /* Vocabulary Cards */
         .vocab-grid {
@@ -185,7 +190,7 @@
             background-color: var(--light);
             border-radius: 12px;
             padding: 20px;
-            border-left: 6px solid var(--primary);
+            border-left: 6px solid var(--secondary);
             transition: transform 0.3s;
             box-shadow: var(--shadow);
         }
@@ -209,7 +214,7 @@
         
         .sound-btn {
             background-color: var(--accent);
-            color: white;
+            color: var(--dark);
             border: none;
             width: 36px;
             height: 36px;
@@ -225,6 +230,7 @@
         .sound-btn:hover {
             background-color: var(--secondary);
             transform: scale(1.1);
+            color: white;
         }
         
         .pronunciation {
@@ -251,7 +257,7 @@
             display: inline-block;
             padding: 2px 8px;
             background-color: var(--accent);
-            color: white;
+            color: var(--dark);
             border-radius: 10px;
             font-size: 0.8rem;
             margin-left: 8px;
@@ -269,7 +275,7 @@
         }
         
         .grammar-table th {
-            background-color: var(--primary);
+            background-color: var(--secondary);
             color: white;
             padding: 15px;
             text-align: left;
@@ -353,31 +359,28 @@
             .content-area {
                 padding: 20px;
             }
+            
+            .story-text {
+                text-indent: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-
-<!-- Page Header -->
-        <header class="page-header">
-            <h1 class="school-name">కందులాపురం బడి</h1>
-	        <h1>📖 Mallika Goes to School</h1>
-            <h2 class="page-title">5వ తరగతి - ఇంగ్లీష్ | Class V - English</h2>
-            
-            <div class="subtitle">Class V English Reader - Interactive Learning Mode</div>
+            <h1>కందులాపురం బడి</h1>
+            <h1>📖 Mallika Goes to School</h1>
+            <div class="subtitle">Class V English Reader - Interactive Learning</div>
             <div class="class-info">Class V - English with Telugu Meanings</div>
         </header>
-
-<body>
-    <!-- Navigation Menu -->
-    <div class="navigation">
-        <a href="english-class5.html" class="nav-btn back-btn">← ఇంగ్లిష్ పాఠాల విషయసూచిక [వెనుకకు ]</a>
-           </div>
-      
-</body>
-
+        
+        <!-- Navigation Menu -->
+        <div class="navigation" style="background-color: #E1BEE7; padding: 15px; border-bottom: 3px solid var(--primary);">
+            <a href="english-class5.html" style="padding: 10px 20px; background-color: white; border: 2px solid var(--primary); border-radius: 25px; font-family: 'Anek Telugu', sans-serif; font-weight: bold; color: var(--dark); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s;">
+                <i class="fas fa-arrow-left"></i> ఇంగ్లిష్ పాఠాల విషయసూచిక [వెనుకకు]
+            </a>
+        </div>
         
         <nav class="main-nav">
             <button class="nav-btn active" data-section="story">
@@ -409,7 +412,7 @@
             <!-- All Words Section -->
             <section id="vocabulary" class="content-section">
                 <h2><i class="fas fa-book"></i> All Highlighted Words</h2>
-                <p>Words are color-coded by length: <span style="background-color:#FFF9C4; padding:2px 6px;">3 letters</span> <span style="background-color:#C8E6C9; padding:2px 6px;">4 letters</span> <span style="background-color:#BBDEFB; padding:2px 6px;">5 letters</span> <span style="background-color:#E1BEE7; padding:2px 6px;">6 letters</span> <span style="background-color:#FFCCBC; padding:2px 6px;">7+ letters</span></p>
+                <p>Words are color-coded by length: <span style="background-color:#FFF9C4; padding:2px 6px;">3 letters</span> <span style="background-color:#C8E6C9; padding:2px 6px;">4 letters</span> <span style="background-color:#BBDEFB; padding:2px 6px;">5 letters</span> <span style="background-color:#FFCCBC; padding:2px 6px;">6 letters</span> <span style="background-color:#D1C4E9; padding:2px 6px;">7+ letters</span></p>
                 
                 <div class="vocab-grid" id="allWordsGrid">
                     <!-- All words will be inserted by JavaScript -->
@@ -491,11 +494,11 @@
     </div>
 
     <script>
-        // Story text
-        const storyText = `Today is a very special day for Mallika. She was so excited that she couldn’t
+        // Story text (same as before)
+        const storyText = `Today is a very special day for Mallika. She was so excited that she couldn't
 sleep after dawn. She eagerly looked out of the window. The newly paved road
 seemed to be welcoming her. This is the day Mallika has been waiting for! Do you
-know, why? It’s neither a festival nor her birthday. Today is going to be Mallika’s
+know, why? It's neither a festival nor her birthday. Today is going to be Mallika's
 first day at school. The school is not faraway from her home. But she has to come
 down the main road from the hill to reach there.
 Her family resides on the foothills of Nallamala forest. The way to the school
@@ -504,10 +507,10 @@ to school along with other children of the neighbourhood. But Mallika couldn't, 
 she was differently-abled.
 
 Right from her childhood,
-Mallika couldn’t walk. As she
+Mallika couldn't walk. As she
 was growing older, she found
 that she could not do things like
-other children. "Don’t worry!
+other children. "Don't worry!
 You can weave a variety of cane
 baskets faster than anyone else.
 You can paint beautiful
@@ -525,7 +528,7 @@ neighbour, came to her. He was astonished to see her skill in painting.
 school. The path to the school
 is too uneven and rocky for
 me to get down. Moreover,
-Naana can’t carry me all the
+Naana can't carry me all the
 way to school everyday,"
 replied Mallika sadly.
 "But would you like to
@@ -537,9 +540,9 @@ to school like everyone else.
 I too want to make friends, play games, wear a uniform and learn new things."
 Tears rolled down from her eyes, as she spoke.
 Ranga consoled her and went straight to meet the school headmaster. Explaining
-Mallika’s situation he said, "She uses a wheelchair to move around but cannot
+Mallika's situation he said, "She uses a wheelchair to move around but cannot
 reach school. I wish if we could all get together and level the path for Mallika."
-"That’s a very good idea, Ranga! Children have the right to get education. That
+"That's a very good idea, Ranga! Children have the right to get education. That
 includes Mallika as well," said the headmaster patting him on the back.
 The next day he assembled the Parents' Committee and discussed the same.
 They made a plan so that Mallika could bring her wheelchair to school. For this,
@@ -554,20 +557,18 @@ headmaster a bouquet. Her parents thanked everyone with Raagi laddoos.
 The path to the school is now ready. "I never dreamt I would see a day like
 this," Mallika wiped her tears in excitement.`;
 
-        // Vocabulary data with Telugu meanings and pronunciation
+        // Vocabulary data with Telugu meanings and pronunciation (same as before)
         const vocabulary = [
             // 3-letter words
             { word: "day", length: 3, pronunciation: "/deɪ/", teluguMeaning: "రోజు", englishMeaning: "a period of 24 hours" },
-                       
             { word: "for", length: 3, pronunciation: "/fɔːr/", teluguMeaning: "కోసం", englishMeaning: "intended to belong to" },
             { word: "why", length: 3, pronunciation: "/waɪ/", teluguMeaning: "ఎందుకు", englishMeaning: "for what reason" },
             { word: "nor", length: 3, pronunciation: "/nɔːr/", teluguMeaning: "మరియు లేదు", englishMeaning: "and not" },
             { word: "but", length: 3, pronunciation: "/bʌt/", teluguMeaning: "కానీ", englishMeaning: "however" },
             { word: "way", length: 3, pronunciation: "/weɪ/", teluguMeaning: "మార్గం", englishMeaning: "path or route" },
-                        
             { word: "can", length: 3, pronunciation: "/kæn/", teluguMeaning: "చేయగల", englishMeaning: "be able to" },
             
-            // 4-letter words
+            // 4-letter words and longer (keeping your existing data)
             { word: "very", length: 4, pronunciation: "/ˈveri/", teluguMeaning: "చాలా", englishMeaning: "extremely" },
             { word: "special", length: 7, pronunciation: "/ˈspeʃəl/", teluguMeaning: "ప్రత్యేక", englishMeaning: "different from what is usual" },
             { word: "excited", length: 7, pronunciation: "/ɪkˈsaɪtɪd/", teluguMeaning: "ఉత్సాహంగా", englishMeaning: "very enthusiastic" },
@@ -703,7 +704,7 @@ this," Mallika wiped her tears in excitement.`;
             { word: "wiped", length: 5, pronunciation: "/waɪpt/", teluguMeaning: "తుడిచింది", englishMeaning: "cleaned or dried by rubbing" }
         ];
 
-        // Verbs data
+        // Verbs data (same as before)
         const verbs = [
             { verb: "sleep", telugu: "నిద్రపోవు", pronunciation: "/sliːp/", example: "couldn't sleep after dawn" },
             { verb: "looked", telugu: "చూసింది", pronunciation: "/lʊkt/", example: "eagerly looked out" },
@@ -752,7 +753,7 @@ this," Mallika wiped her tears in excitement.`;
             { verb: "wiped", telugu: "తుడిచింది", pronunciation: "/waɪpt/", example: "wiped her tears" }
         ];
 
-        // Opposites data
+        // Opposites data (same as before)
         const opposites = [
             { word: "special", telugu: "ప్రత్యేక", opposite: "ordinary", teluguOpposite: "సాధారణ" },
             { word: "excited", telugu: "ఉత్సాహంగా", opposite: "calm", teluguOpposite: "ప్రశాంతంగా" },
@@ -778,7 +779,7 @@ this," Mallika wiped her tears in excitement.`;
             { word: "ready", telugu: "సిద్ధంగా", opposite: "unready", teluguOpposite: "సిద్ధంగా లేని" }
         ];
 
-        // Singular/Plural data
+        // Singular/Plural data (same as before)
         const singularPlural = [
             { singular: "day", teluguSingular: "రోజు", plural: "days", teluguPlural: "రోజులు" },
             { singular: "window", teluguSingular: "కిటికీ", plural: "windows", teluguPlural: "కిటికీలు" },
@@ -809,7 +810,6 @@ this," Mallika wiped her tears in excitement.`;
             { singular: "weed", teluguSingular: "కలుపు మొక్క", plural: "weeds", teluguPlural: "కలుపు మొక్కలు" },
             { singular: "spade", teluguSingular: "పార", plural: "spades", teluguPlural: "పారలు" },
             { singular: "hoe", teluguSingular: "కత్తిరింత", plural: "hoes", teluguPlural: "కత్తిరింతలు" },
-            { singular: "child", teluguSingular: "బిడ్డ", plural: "children", teluguPlural: "పిల్లలు" },
             { singular: "bouquet", teluguSingular: "పూలగుత్తి", plural: "bouquets", teluguPlural: "పూలగుత్తులు" },
             { singular: "laddoo", teluguSingular: "లడ్డూ", plural: "laddoos", teluguPlural: "లడ్డూలు" }
         ];
@@ -869,7 +869,10 @@ this," Mallika wiped her tears in excitement.`;
         // Function to display story with highlighted words
         function displayStory() {
             const storyElement = document.getElementById('storyText');
-            let formattedStory = storyText;
+            
+            // Process the story text
+            const paragraphs = storyText.split('\n\n');
+            let formattedStory = '';
             
             // Sort vocabulary by word length (longest first) to avoid partial highlighting
             const sortedVocab = [...vocabulary].sort((a, b) => b.word.length - a.word.length);
@@ -880,19 +883,13 @@ this," Mallika wiped her tears in excitement.`;
                 vocabMap[item.word.toLowerCase()] = item;
             });
             
-            // Split story into words and highlight
-            const words = formattedStory.split(/(\s+)/);
-            formattedStory = words.map(word => {
-                const cleanWord = word.toLowerCase().replace(/[.,!?"']/g, '');
-                if (vocabMap[cleanWord] && cleanWord.length >= 3) {
-                    const wordData = vocabMap[cleanWord];
-                    const lengthClass = `word-${Math.min(wordData.length, 7)}`; // Cap at 7+
-                    return `<span class="highlight-word ${lengthClass}" data-word="${wordData.word}">${word}</span>`;
+            paragraphs.forEach(paragraph => {
+                if (paragraph.trim()) {
+                    formattedStory += `<p>${highlightWordsInText(paragraph, vocabMap)}</p>`;
                 }
-                return word;
-            }).join('');
+            });
             
-            storyElement.innerHTML = `<p>${formattedStory}</p>`;
+            storyElement.innerHTML = formattedStory;
             
             // Add click event to highlighted words
             document.querySelectorAll('.highlight-word').forEach(word => {
@@ -901,6 +898,20 @@ this," Mallika wiped her tears in excitement.`;
                     showWordDetails(wordText);
                 });
             });
+        }
+        
+        // Helper function to highlight words in text
+        function highlightWordsInText(text, vocabMap) {
+            const words = text.split(/(\s+)/);
+            return words.map(word => {
+                const cleanWord = word.toLowerCase().replace(/[.,!?"':;-]/g, '');
+                if (vocabMap[cleanWord] && cleanWord.length >= 3) {
+                    const wordData = vocabMap[cleanWord];
+                    const lengthClass = `word-${Math.min(wordData.length, 7)}`; // Cap at 7+
+                    return `<span class="highlight-word ${lengthClass}" data-word="${wordData.word}">${word}</span>`;
+                }
+                return word;
+            }).join('');
         }
         
         // Function to display all words
@@ -1104,7 +1115,7 @@ this," Mallika wiped her tears in excitement.`;
                 
                 html += `
                     <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #eee;">
-                        <div style="color: #9C27B0; font-weight: bold; margin-bottom: 8px;">Singular/Plural:</div>
+                        <div style="color: var(--telugu-color); font-weight: bold; margin-bottom: 8px;">Singular/Plural:</div>
                         <div><strong>Singular:</strong> ${singular} (${singularPluralData.teluguSingular})</div>
                         <div><strong>Plural:</strong> ${plural} (${singularPluralData.teluguPlural})</div>
                     </div>
@@ -1146,3 +1157,4 @@ this," Mallika wiped her tears in excitement.`;
     </script>
 </body>
 </html>
+
