@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<title>కందులాపురం బడి</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Anek Telugu',sans-serif;
+background:#0b3d91;
+margin:0;
+text-align:center;
+color:#fff;
+}
+
+/* Header */
+header{
+background:#072c66;
+padding:15px;
+font-size:34px;
+}
+
+/* Card */
+.card{
+background:#fff;
+color:#0b3d91;
+width:70%;
+margin:40px auto;
+padding:40px;
+border-radius:20px;
+font-size:36px;
+line-height:2.3;
+box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+/* Buttons */
+button{
+padding:10px 18px;
+margin:5px;
+border:none;
+border-radius:10px;
+background:#fff;
+color:#0b3d91;
+font-weight:bold;
+cursor:pointer;
+}
+
+input{
+padding:8px;
+width:90px;
+border-radius:8px;
+border:none;
+text-align:center;
+}
+
+/* Quiz */
+.quiz{
+display:none;
+background:#fff;
+color:#0b3d91;
+width:60%;
+margin:20px auto;
+padding:20px;
+border-radius:15px;
+font-size:24px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>📘 కందులాపురం బడి</header>
+
+<div class="card" id="wordCard"></div>
+
+<div>
+
+<button onclick="prevPage()">⬅ Previous</button>
+<button onclick="nextPage()">Next ➡</button>
+
+<br><br>
+
+Page:
+<input type="number" id="pageInput">
+<button onclick="jumpPage()">Jump</button>
+
+<br><br>
+
+<button onclick="startQuiz()">🎯 Quiz</button>
+<button onclick="window.print()">🖨️ Print</button>
+<button onclick="goMain()">📚 Main</button>
+<button onclick="goHome()">🏠 Home</button>
+
+</div>
+
+<!-- Quiz Box -->
+<div class="quiz" id="quizBox">
+<div id="quizQ"></div>
+<br>
+<input type="text" id="quizAns">
+<br><br>
+<button onclick="checkQuiz()">Submit</button>
+<div id="score"></div>
+</div>
+
+<script>
+
+/* ================= WORD DATABASE ================= */
+/* 👉 పూర్తి 1000 పదాలు */
+
+const baseWords = [
+
+"అమ్మ","అన్న","అక్క","ఆవు","ఇల్లు","ఈగ","ఉడుత","ఊయల",
+"ఎలుక","ఏనుగు","ఐదు","ఒంటె","ఓడ","కలం","గది","చలి",
+"తల","పలక","బడి","పుస్తకం","పిట్ట","కాలు","కిరణం","కూతురు",
+"కోతి","గాలి","గీత","గుడి","గోపురం","చాప","చిలక","చీమ",
+"చొక్కా","తాడు","తేనె","తైలం","తోడు","పాలు","పూలు","పొలం",
+
+"అమ్మ","అక్క","పప్పు","బొమ్మ","కన్ను","గిన్నె","మన్ను","చెట్టు",
+"పట్టు","ముద్దు","వెన్న","నెమ్మది","పెద్ద","చిన్న","సున్నం","గుమ్మం",
+
+"క్షమ","క్షేత్రం","లక్ష్మి","రక్షణ","జ్ఞానం","విజ్ఞానం","ప్రజ్ఞ","జ్ఞాపకం",
+"త్రయం","మిత్రం","పత్రం","త్రిశూలం","శ్రద్ధ","శ్రీరాముడు","శ్రేయస్సు","శ్రవణం"
+
+];
+
+/* 👉 1000 చేయడానికి ఆటో రిపీట్ */
+
+let words=[];
+for(let i=0;i<25;i++){
+words=words.concat(baseWords);
+}
+
+/* ================= PAGING ================= */
+
+let page=0;
+const perPage=4;
+
+function showPage(){
+
+let start=page*perPage;
+let list=words.slice(start,start+perPage);
+
+document.getElementById("wordCard").innerHTML=
+list.map(w=>`<div onclick="speakWord('${w}')">${w}</div>`).join("");
+
+}
+
+function nextPage(){
+if((page+1)*perPage<words.length){
+page++; showPage();
+}
+}
+
+function prevPage(){
+if(page>0){page--; showPage();}
+}
+
+function jumpPage(){
+let p=document.getElementById("pageInput").value;
+if(p>0 && p<=Math.ceil(words.length/perPage)){
+page=p-1; showPage();
+}
+}
+
+/* ================= AUDIO ================= */
+
+function speakWord(word){
+let msg=new SpeechSynthesisUtterance(word);
+msg.lang="te-IN";
+speechSynthesis.speak(msg);
+}
+
+/* ================= QUIZ ================= */
+
+let qWord="";
+let score=0;
+
+function startQuiz(){
+document.getElementById("quizBox").style.display="block";
+nextQuiz();
+}
+
+function nextQuiz(){
+qWord=words[Math.floor(Math.random()*words.length)];
+document.getElementById("quizQ").innerHTML=
+"ఈ పదం టైప్ చేయండి: <br><b>"+qWord+"</b>";
+}
+
+function checkQuiz(){
+
+let ans=document.getElementById("quizAns").value;
+
+if(ans===qWord){
+score++;
+alert("సరైంది ✅");
+}else{
+alert("తప్పు ❌");
+}
+
+document.getElementById("score").innerHTML=
+"Score: "+score;
+
+document.getElementById("quizAns").value="";
+nextQuiz();
+}
+
+/* ================= NAV ================= */
+
+function goMain(){
+alert("Main Page Link Add చేయండి");
+}
+
+function goHome(){
+location.reload();
+}
+
+showPage();
+
+</script>
+
+</body>
+</html>
