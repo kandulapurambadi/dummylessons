@@ -19,53 +19,73 @@ color:#fff;
 /* Header */
 header{
 background:#072c66;
-padding:15px;
-font-size:34px;
+padding:12px;
+font-size:24px;
 }
 
-/* Card */
+/* 3x3 Grid - 30% Width */
+.word-container{
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:12px;
+width:30%;
+margin:30px auto;
+}
+
+/* Square Word Box */
 .card{
 background:#fff;
 color:#0b3d91;
-width:70%;
-margin:40px auto;
-padding:40px;
-border-radius:20px;
-font-size:36px;
-line-height:2.3;
-box-shadow:0 0 15px rgba(0,0,0,0.3);
+aspect-ratio:1/1;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:12px;
+box-shadow:0 0 8px rgba(0,0,0,0.3);
+transition:0.2s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+/* Word - 100% Bigger */
+.card h1{
+margin:0;
+font-size:36px;   /* Increased 100% */
+font-weight:600;
 }
 
 /* Buttons */
 button{
-padding:10px 18px;
-margin:5px;
+padding:6px 10px;
+margin:4px;
 border:none;
-border-radius:10px;
+border-radius:6px;
 background:#fff;
 color:#0b3d91;
 font-weight:bold;
 cursor:pointer;
+font-size:12px;
+}
+
+button:hover{
+background:#ffdd57;
 }
 
 input{
-padding:8px;
-width:90px;
-border-radius:8px;
+padding:4px;
+width:50px;
+border-radius:5px;
 border:none;
 text-align:center;
+font-size:12px;
 }
 
-/* Quiz */
-.quiz{
-display:none;
-background:#fff;
-color:#0b3d91;
-width:60%;
-margin:20px auto;
-padding:20px;
-border-radius:15px;
-font-size:24px;
+.page-info{
+margin-top:8px;
+font-size:14px;
+font-weight:bold;
 }
 
 </style>
@@ -73,47 +93,35 @@ font-size:24px;
 
 <body>
 
-<header>📘 కందులాపురం బడి</header>
+<header><h1>📘 కందులాపురం బడి</h1></header>
+	<h1> FOUNDATIONAL LITERACY & NUMERACY (FLN)</h1>
 
-<div class="card" id="wordCard"></div>
+	<h1>తెలుగు పదాలు చదువుదాం </h1>
+
+<div class="word-container" id="wordCard"></div>
+
+<div class="page-info" id="pageInfo"></div>
 
 <div>
-<!-- PAGE INFO -->
-<div class="pageInfo" id="pageInfo"></div>
 
-<button onclick="prevPage()">⬅ Previous</button>
-<button onclick="nextPage()">Next ➡</button>
+<button onclick="firstPage()">⏮</button>
+<button onclick="prevPage()">⬅</button>
+<button onclick="nextPage()">➡</button>
+<button onclick="lastPage()">⏭</button>
+
 <br><br>
 
 Page:
-<input type="number" id="pageInput">
-<button onclick="jumpPage()">Jump</button>
+<input type="number" id="pageInput" min="1">
+<button onclick="jumpPage()">Go</button>
 
-<br><br>
-
-<button onclick="startQuiz()">🎯 Quiz</button>
-<button onclick="window.print()">🖨️ Print</button>
-<button onclick="goMain()">📚 Main</button>
-<button onclick="goHome()">🏠 Home</button>
-
-</div>
-
-<!-- Quiz Box -->
-<div class="quiz" id="quizBox">
-<div id="quizQ"></div>
-<br>
-<input type="text" id="quizAns">
-<br><br>
-<button onclick="checkQuiz()">Submit</button>
-<div id="score"></div>
 </div>
 
 <script>
 
-/* ================= WORD DATABASE ================= */
-/* 👉 పూర్తి 1000 పదాలు */
+/* WORD LIST */
 
-const baseWords = [
+const words = [
 "అమల", "అచట", "అకట", "అమల",
 "అరవ", "అలసట", "అమర", "అవతల",
 "అనక", "అపర", "అరమర", "ఆశ",
@@ -132,21 +140,14 @@ const baseWords = [
 "నవత", "నటన", "పడక", "పడవ",
 "పనస", "పరక", "పచన", "బరవ",
 "బడవ", "మమత", "మగత", "మరకత",
-"రమణ", "శనగ", "సహజ", "వనజ", 
-"జలగ", "జనత", "జగడ", "పరవశ",
+"రమణ", "జనత", "జలగ", "జనక",
+
 ];
 
-/* 👉 1000 చేయడానికి ఆటో రిపీట్ */
-
-let words=[];
-for(let i=0;i<25;i++){
-words=words.concat(baseWords);
-}
-
-/* ================= PAGING ================= */
+/* PAGING */
 
 let page=0;
-const perPage=4;
+const perPage=9;
 
 function showPage(){
 
@@ -154,77 +155,53 @@ let start=page*perPage;
 let list=words.slice(start,start+perPage);
 
 document.getElementById("wordCard").innerHTML=
-list.map(w=>`<div onclick="speakWord('${w}')">${w}</div>`).join("");
+list.map(w=>`
+<div class="card">
+<h1>${w}</h1>
+</div>
+`).join("");
+
+let totalPages=Math.ceil(words.length/perPage);
+
+document.getElementById("pageInfo").innerHTML=
+"Page "+(page+1)+" / "+totalPages;
 
 }
 
 function nextPage(){
 if((page+1)*perPage<words.length){
-page++; showPage();
+page++;
+showPage();
 }
 }
 
 function prevPage(){
-if(page>0){page--; showPage();}
+if(page>0){
+page--;
+showPage();
+}
+}
+
+function firstPage(){
+page=0;
+showPage();
+}
+
+function lastPage(){
+page=Math.floor((words.length-1)/perPage);
+showPage();
 }
 
 function jumpPage(){
-let p=document.getElementById("pageInput").value;
-if(p>0 && p<=Math.ceil(words.length/perPage)){
-page=p-1; showPage();
-}
-}
+let p=parseInt(document.getElementById("pageInput").value);
+let totalPages=Math.ceil(words.length/perPage);
 
-/* ================= AUDIO ================= */
-
-function speakWord(word){
-let msg=new SpeechSynthesisUtterance(word);
-msg.lang="te-IN";
-speechSynthesis.speak(msg);
-}
-
-/* ================= QUIZ ================= */
-
-let qWord="";
-let score=0;
-
-function startQuiz(){
-document.getElementById("quizBox").style.display="block";
-nextQuiz();
-}
-
-function nextQuiz(){
-qWord=words[Math.floor(Math.random()*words.length)];
-document.getElementById("quizQ").innerHTML=
-"ఈ పదం టైప్ చేయండి: <br><b>"+qWord+"</b>";
-}
-
-function checkQuiz(){
-
-let ans=document.getElementById("quizAns").value;
-
-if(ans===qWord){
-score++;
-alert("సరైంది ✅");
+if(p>=1 && p<=totalPages){
+page=p-1;
+showPage();
 }else{
-alert("తప్పు ❌");
+alert("సరైన పేజీ సంఖ్య ఇవ్వండి");
 }
-
-document.getElementById("score").innerHTML=
-"Score: "+score;
-
-document.getElementById("quizAns").value="";
-nextQuiz();
-}
-
-/* ================= NAV ================= */
-
-function goMain(){
-alert("Main Page Link Add చేయండి");
-}
-
-function goHome(){
-location.reload();
 }
 
 showPage();
@@ -233,8 +210,6 @@ showPage();
 
 </body>
 </html>
-
-
 
 
 
