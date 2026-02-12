@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<title>కందులాపురం బడి</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Anek Telugu',sans-serif;
+background:#0b3d91;
+margin:0;
+text-align:center;
+color:#fff;
+}
+
+/* Header */
+header{
+background:#072c66;
+padding:12px;
+font-size:24px;
+}
+
+/* 3x3 Grid - 30% Width */
+.word-container{
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:12px;
+width:30%;
+margin:30px auto;
+}
+
+/* Square Word Box */
+.card{
+background:#fff;
+color:#0b3d91;
+aspect-ratio:1/1;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:12px;
+box-shadow:0 0 8px rgba(0,0,0,0.3);
+transition:0.2s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+/* Word - 100% Bigger */
+.card h1{
+margin:0;
+font-size:36px;   /* Increased 100% */
+font-weight:600;
+}
+
+/* Buttons */
+button{
+padding:6px 10px;
+margin:4px;
+border:none;
+border-radius:6px;
+background:#fff;
+color:#0b3d91;
+font-weight:bold;
+cursor:pointer;
+font-size:12px;
+}
+
+button:hover{
+background:#ffdd57;
+}
+
+input{
+padding:4px;
+width:50px;
+border-radius:5px;
+border:none;
+text-align:center;
+font-size:12px;
+}
+
+.page-info{
+margin-top:8px;
+font-size:14px;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<header><h1>📘 కందులాపురం బడి</h1></header>
+	<h1> FOUNDATIONAL LITERACY & NUMERACY (FLN)</h1>
+
+	<h1>తెలుగు పదాలు చదువుదాం </h1>
+
+<div class="word-container" id="wordCard"></div>
+
+<div class="page-info" id="pageInfo"></div>
+
+<div>
+
+<button onclick="firstPage()">⏮</button>
+<button onclick="prevPage()">⬅</button>
+<button onclick="nextPage()">➡</button>
+<button onclick="lastPage()">⏭</button>
+
+<br><br>
+
+Page:
+<input type="number" id="pageInput" min="1">
+<button onclick="jumpPage()">Go</button>
+
+</div>
+
+<script>
+
+/* WORD LIST */
+
+const words = [
+"కాకర", కాజ", "కాకి", "కాగడ", "కావలి","కాజ", "కాకినాడ", "కలవరం",
+"కాగితం", "కావడి", "కాపరి", "కలశం", "కదనరంగం", "కిటికి", కిలకిల",
+"కీచకం", "కీచక", "కీటకం", "కీలకం", "కిరీటం", "కుడుము", "కురచ", "కుడితి",
+"కులాసా", "కుదేలు", "కుందేలు", "కూజ", "కూన", "కృప", "కృషి", "కెరటం",
+"కేక", "కేశాలు", "కేవలం", "కైక", "కైలాసం", "కొడుకు", "కొడవలి", "కోపం", 
+"కోట", "కోన", "కోతలు", "కోణంగి", "కోలాహలం", "కోడలు", "కొదవ", 
+"కౌశలం", "కౌగిలి", "కౌసు", 
+];
+
+/* PAGING */
+
+let page=0;
+const perPage=9;
+
+function showPage(){
+
+let start=page*perPage;
+let list=words.slice(start,start+perPage);
+
+document.getElementById("wordCard").innerHTML=
+list.map(w=>`
+<div class="card">
+<h1>${w}</h1>
+</div>
+`).join("");
+
+let totalPages=Math.ceil(words.length/perPage);
+
+document.getElementById("pageInfo").innerHTML=
+"Page "+(page+1)+" / "+totalPages;
+
+}
+
+function nextPage(){
+if((page+1)*perPage<words.length){
+page++;
+showPage();
+}
+}
+
+function prevPage(){
+if(page>0){
+page--;
+showPage();
+}
+}
+
+function firstPage(){
+page=0;
+showPage();
+}
+
+function lastPage(){
+page=Math.floor((words.length-1)/perPage);
+showPage();
+}
+
+function jumpPage(){
+let p=parseInt(document.getElementById("pageInput").value);
+let totalPages=Math.ceil(words.length/perPage);
+
+if(p>=1 && p<=totalPages){
+page=p-1;
+showPage();
+}else{
+alert("సరైన పేజీ సంఖ్య ఇవ్వండి");
+}
+}
+
+showPage();
+
+</script>
+
+</body>
+</html>
+
+
+
+
