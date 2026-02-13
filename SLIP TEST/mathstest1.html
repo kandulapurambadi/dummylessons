@@ -2,15 +2,17 @@
 <html lang="te">
 <head>
 <meta charset="UTF-8">
-<title>Daily Test – కందులాపురం బడి</title>
+<title>Daily Test – కందులాపురం బడి | Bilingual Question Paper</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 *{
 box-sizing:border-box;
 font-family:'Anek Telugu', sans-serif;
+margin:0;
+padding:0;
 }
 
 body{
@@ -32,7 +34,7 @@ box-shadow:0 15px 40px rgba(0,0,0,0.3);
 text-align:center;
 }
 
-/* LOGO */
+/* ---------------- LOGO ---------------- */
 
 .logo-circle{
 width:220px;
@@ -65,9 +67,17 @@ color:#0b3d91;
 text-align:center;
 font-size:16px;
 padding:10px;
+line-height:1.5;
 }
 
-/* TIMER */
+.logo-text small{
+display:block;
+font-size:14px;
+font-weight:500;
+color:#4a5568;
+}
+
+/* ---------------- TIMER ---------------- */
 
 .timer{
 background:#b43b3b;
@@ -78,13 +88,29 @@ border-radius:30px;
 font-size:20px;
 font-weight:800;
 margin-bottom:20px;
+box-shadow:0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* TITLE */
+/* ---------------- TITLE ---------------- */
 
 h1{
 color:#0b3d91;
 margin-top:10px;
+font-size:28px;
+font-weight:800;
+}
+
+.bilingual-title{
+display:flex;
+flex-direction:column;
+gap:5px;
+margin-bottom:15px;
+}
+
+.bilingual-title span{
+font-size:18px;
+font-weight:500;
+color:#4a5568;
 }
 
 .student-panel{
@@ -106,7 +132,13 @@ border-radius:30px;
 border:2px solid #b0c4ff;
 font-size:1rem;
 outline:none;
-min-width:220px;
+min-width:250px;
+transition:all 0.3s;
+}
+
+.student-panel input:focus{
+border-color:#0b3d91;
+box-shadow:0 0 0 3px rgba(11,61,145,0.1);
 }
 
 .btn{
@@ -119,48 +151,124 @@ font-weight:700;
 background:#0b3d91;
 color:#fff;
 transition:0.2s;
+box-shadow:0 4px 6px rgba(0,0,0,0.1);
 }
 
 .btn:hover{
 background:#072c66;
+transform:translateY(-2px);
 }
+
+/* ---------------- QUESTION BLOCK ---------------- */
 
 .question-block{
 background:#f7f9ff;
-padding:15px;
-margin-bottom:15px;
+padding:20px;
+margin-bottom:20px;
 border-left:6px solid #0b3d91;
 border-radius:15px;
 text-align:left;
+box-shadow:0 2px 4px rgba(0,0,0,0.05);
 }
 
-.question-en{
-font-weight:600;
+.question-header{
+display:flex;
+gap:10px;
+margin-bottom:10px;
+flex-wrap:wrap;
 }
 
-.question-te{
-color:#0b3d91;
+.question-number{
 font-weight:700;
+color:#0b3d91;
+min-width:30px;
+}
+
+.question-text{
+font-weight:600;
+font-size:18px;
+color:#2d3748;
+}
+
+.bilingual-hint{
+font-size:14px;
+color:#718096;
 margin-top:5px;
+font-weight:400;
+border-left:3px solid #cbd5e0;
+padding-left:10px;
+}
+
+.answer-area{
+margin-top:15px;
+}
+
+.answer-label{
+display:block;
+margin-bottom:5px;
+color:#4a5568;
+font-weight:500;
 }
 
 .answer-area input{
 width:100%;
-padding:10px 15px;
+padding:12px 15px;
 border-radius:25px;
 border:2px solid #cbd5ff;
-margin-top:8px;
+margin-top:5px;
+font-size:16px;
+transition:all 0.3s;
+}
+
+.answer-area input:focus{
+border-color:#0b3d91;
+outline:none;
+box-shadow:0 0 0 3px rgba(11,61,145,0.1);
 }
 
 .score-badge{
 background:#0b3d91;
 color:#fff;
-padding:12px 30px;
+padding:15px 40px;
 border-radius:30px;
-font-size:1.4rem;
+font-size:1.6rem;
 font-weight:800;
 display:inline-block;
 margin-top:20px;
+box-shadow:0 4px 6px rgba(0,0,0,0.1);
+}
+
+.instruction-text{
+background:#e8f0fe;
+padding:12px;
+border-radius:10px;
+margin:15px 0;
+color:#0b3d91;
+font-weight:500;
+}
+
+/* ---------------- BILINGUAL ELEMENTS ---------------- */
+
+.te-bilingual{
+display:inline-block;
+}
+
+.te{
+color:#0b3d91;
+}
+
+.en{
+color:#4a5568;
+font-weight:400;
+}
+
+.separator{
+margin:0 5px;
+color:#cbd5e0;
+}
+
+.submit-section{
+margin-top:30px;
 }
 
 </style>
@@ -170,22 +278,32 @@ margin-top:20px;
 
 <div class="main-container">
 
-<!-- LOGO -->
+<!-- LOGO with bilingual text -->
 <div class="logo-circle">
-<img src="children.jpg">
+<img src="children.jpg" alt="Children">
 <div class="logo-text">
 కందులాపురం బడి<br>
-కంభం మార్కాపురం జిల్లా
+<span class="en">Kandulapuram School</span>
+<small>కంభం మార్కాపురం జిల్లా | Kambham - Markapuram District</small>
 </div>
 </div>
 
+<!-- Bilingual Title -->
+<div class="bilingual-title">
 <h1>📐 గణిత పరీక్ష · Maths Test</h1>
+<span>క్లాస్ 3 · Class 3 | మార్కులు: 10 · Marks: 10</span>
+</div>
 
 <div class="timer" id="timer">⏳ 20:00</div>
 
 <div class="student-panel">
-<input type="text" id="studentNameInput" placeholder="Enter your name / మీ పూర్తి పేరు నమోదు చేయండి">
-<button class="btn" onclick="generatePaper()">Generate Paper / ప్రశ్నాపత్రం తయారు చేయండి</button>
+<input type="text" id="studentNameInput" placeholder="మీ పూర్తి పేరు / Enter your full name">
+<button class="btn" onclick="generatePaper()">📄 Generate Question Paper</button>
+</div>
+
+<!-- Instructions -->
+<div class="instruction-text">
+📝 ప్రతి ప్రశ్నకు సమాధానం రాయండి | Answer all questions
 </div>
 
 <div id="paperContainer"></div>
@@ -195,9 +313,7 @@ margin-top:20px;
 
 <script>
 
-/* TIMER */
-
-let totalTime = 20 * 60;
+let totalTime = 20 * 60; // 20 minutes
 let timerInterval;
 
 function startTimer(){
@@ -212,7 +328,7 @@ document.getElementById("timer").innerText =
 
 if(totalTime <= 0){
 clearInterval(timerInterval);
-alert("⏰ Time Up! Test Submitted Automatically. / సమయం పూర్తైంది.");
+alert("⏰ సమయం ముగిసింది! Time Up! Test Submitted Automatically.");
 evaluateAnswers();
 }
 
@@ -221,80 +337,77 @@ totalTime--;
 },1000);
 }
 
-/* BILINGUAL QUESTIONS */
-
+// Bilingual question bank
 const questionBank = [
-
-{ 
-en:"6000 + 400 + 30 + 1 = ?", 
-te:"6000 + 400 + 30 + 1 విలువ ఎంత?", 
-a:"6431" 
+{
+q: "6000 + 400 + 30 + 1 = ?",
+q_te: "6000 + 400 + 30 + 1 = ?",
+a: "6431",
+hint: "విలువ కనుగొనండి / Find the value"
 },
-
-{ 
-en:"Predecessor of 100", 
-te:"100 కి ముందున్న సంఖ్య ఏమిటి?", 
-a:"99" 
+{
+q: "Predecessor of 100",
+q_te: "100 యొక్క పూర్వగామి",
+a: "99",
+hint: "ముందు వచ్చే సంఖ్య / Number that comes before"
 },
-
-{ 
-en:"Greatest 2-digit number", 
-te:"అత్యంత పెద్ద 2 అంకెల సంఖ్య ఏమిటి?", 
-a:"99" 
+{
+q: "Greatest 2-digit number",
+q_te: "రెండంకెల గరిష్ఠ సంఖ్య",
+a: "99",
+hint: "అతిపెద్ద రెండంకెల సంఖ్య / Largest two-digit number"
 },
-
-{ 
-en:"Expanded form of 84", 
-te:"84 యొక్క విస్తృత రూపం ఏమిటి?", 
-a:"80+4" 
+{
+q: "Expanded form of 84",
+q_te: "84 యొక్క విస్తరించ రూపం",
+a: "80+4",
+hint: "పొడిగించిన రూపంలో రాయండి / Write in expanded form"
 },
-
-{ 
-en:"Successor of 1299", 
-te:"1299 కి తరువాతి సంఖ్య ఏమిటి?", 
-a:"1300" 
+{
+q: "Successor of 1299",
+q_te: "1299 యొక్క తర్వాతి సంఖ్య",
+a: "1300",
+hint: "తర్వాత వచ్చే సంఖ్య / Number that comes after"
 },
-
-{ 
-en:"Place value of 6 in 6245", 
-te:"6245 లో 6 యొక్క స్థానం విలువ ఏమిటి?", 
-a:"6000" 
+{
+q: "Place value of 6 in 6245",
+q_te: "6245 లో 6 యొక్క స్థాన విలువ",
+a: "6000",
+hint: "అంకె విలువ / Face value"
 },
-
-{ 
-en:"Smallest 3-digit number", 
-te:"అత్యంత చిన్న 3 అంకెల సంఖ్య ఏమిటి?", 
-a:"100" 
+{
+q: "Smallest 3-digit number",
+q_te: "మూడంకెల కనిష్ఠ సంఖ్య",
+a: "100",
+hint: "అతిచిన్న మూడంకెల సంఖ్య / Smallest three-digit number"
 },
-
-{ 
-en:"70000 + 3000 + 500 + 20 + 8", 
-te:"70000 + 3000 + 500 + 20 + 8 విలువ ఎంత?", 
-a:"73528" 
+{
+q: "70000 + 3000 + 500 + 20 + 8",
+q_te: "70000 + 3000 + 500 + 20 + 8",
+a: "73528",
+hint: "కూడిక చేయండి / Add all numbers"
 },
-
-{ 
-en:"How many 100s in 10000?", 
-te:"10000 లో ఎన్ని వందలు ఉన్నాయి?", 
-a:"100" 
+{
+q: "How many 100s in 10000?",
+q_te: "10000 లో ఎన్ని 100లు ఉన్నాయి?",
+a: "100",
+hint: "భాగహారం చేయండి / Divide and find"
 },
-
-{ 
-en:"Predecessor of 5000", 
-te:"5000 కి ముందున్న సంఖ్య ఏమిటి?", 
-a:"4999" 
+{
+q: "Predecessor of 5000",
+q_te: "5000 యొక్క పూర్వగామి",
+a: "4999",
+hint: "ముందు వచ్చే సంఖ్య / Number that comes before"
 }
-
 ];
 
 let currentQuestions=[];
 
 function generatePaper(){
 
-let name=document.getElementById("studentNameInput").value;
-
+let name=document.getElementById("studentNameInput").value.trim();
 if(name===""){
-alert("Enter name first / ముందుగా పేరు నమోదు చేయండి");
+alert("దయచేసి మీ పేరు నమోదు చేయండి / Please enter your name");
 return;
 }
 
@@ -307,16 +420,34 @@ let html="";
 currentQuestions.forEach((item,i)=>{
 html+=`
 <div class="question-block">
-<div class="question-en"><b>${i+1}. ${item.en}</b></div>
-<div class="question-te">${item.te}</div>
+<div class="question-header">
+<span class="question-number">${i+1}.</span>
+<div style="flex:1;">
+<div class="question-text">
+<span class="te">${item.q_te}</span>
+<span class="separator">|</span>
+<span class="en">${item.q}</span>
+</div>
+<div class="bilingual-hint">
+💡 ${item.hint}
+</div>
+</div>
+</div>
 <div class="answer-area">
-<input type="text" id="ans-${i}">
+<div class="answer-label">
+📝 సమాధానం / Answer:
+</div>
+<input type="text" id="ans-${i}" placeholder="మీ సమాధానం ఇక్కడ రాయండి / Write your answer here...">
 </div>
 </div>
 `;
 });
 
-html+=`<button class="btn" onclick="evaluateAnswers()">Submit / సమర్పించండి</button>`;
+html+=`
+<div class="submit-section">
+<button class="btn" onclick="evaluateAnswers()">✅ సమర్పించండి / Submit Test</button>
+</div>
+`;
 
 document.getElementById("paperContainer").innerHTML=html;
 
@@ -327,6 +458,7 @@ function evaluateAnswers(){
 clearInterval(timerInterval);
 
 let score=0;
+let results="";
 
 currentQuestions.forEach((item,i)=>{
 let user=document.getElementById("ans-"+i)?.value.trim();
@@ -335,9 +467,35 @@ score++;
 }
 });
 
-document.getElementById("scoreDisplay").innerHTML=
-`<div class="score-badge">🎯 Score / మార్కులు: ${score}/10</div>`;
+let scoreMessage = score === 10 ? "🎉 పూర్తి మార్కులు! Perfect Score!" :
+                  score >= 8 ? "👏 చాలా బాగుంది! Very Good!" :
+                  score >= 5 ? "👍 మంచిది! Good!" :
+                  "📚 మరింత సాధన చేయండి! Practice More!";
 
+document.getElementById("scoreDisplay").innerHTML=`
+<div class="score-badge">
+🎯 ${score}/10<br>
+<small style="font-size:16px;">${scoreMessage}</small>
+</div>
+`;
+
+// Show correct answers for wrong ones
+if(score < 10){
+let feedback = '<div style="margin-top:20px; padding:15px; background:#fff3cd; border-radius:15px;">';
+feedback += '<h3 style="color:#856404;">📋 సరైన సమాధానాలు / Correct Answers:</h3>';
+currentQuestions.forEach((item,i)=>{
+let user = document.getElementById("ans-"+i)?.value.trim() || "—";
+feedback += `
+<div style="margin:10px 0; padding:8px; border-bottom:1px solid #ffe69c;">
+<strong>Q${i+1}:</strong> ${item.q_te}<br>
+<span style="color:#0b3d91;">✓ ${item.a}</span> | 
+<span style="color:#856404;">✗ మీ సమాధానం/Your answer: ${user}</span>
+</div>
+`;
+});
+feedback += '</div>';
+document.getElementById("scoreDisplay").innerHTML += feedback;
+}
 }
 
 </script>
