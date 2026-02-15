@@ -2,1022 +2,359 @@
 <html lang="te">
 <head>
 <meta charset="UTF-8">
-<title>Three Butterflies – Vocabulary Matching Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary Matching Game – Class 5</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-* {
-    box-sizing: border-box;
-    font-family: 'Anek Telugu', sans-serif;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    font-family:'Anek Telugu',sans-serif;
+    margin:0;
+    padding:0;
 }
 
-body {
-    margin: 0;
-    padding: 20px;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0b3d91, #072c66);
-    display: flex;
-    justify-content: center;
+body{
+    background:linear-gradient(135deg,#0b3d91,#072c66);
+    padding:30px;
+    display:flex;
+    justify-content:center;
 }
 
-.main-container {
-    max-width: 1300px;
-    width: 100%;
-    background: #ffffff;
-    border-radius: 30px;
-    padding: 30px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+.main{
+    background:#fff;
+    width:1200px;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
 }
 
-/* Header Styles */
-.header {
-    text-align: center;
-    margin-bottom: 30px;
-    border-bottom: 3px solid #0b3d91;
-    padding-bottom: 20px;
-    background: linear-gradient(to right, #f9f3e6, #fff);
-    border-radius: 20px;
-    padding: 20px;
+/* Header */
+.header{
+    text-align:center;
+    margin-bottom:20px;
 }
 
-.logo-circle {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin: 0 auto 15px auto;
-    position: relative;
-    background: #fff;
-    border: 6px solid #0b3d91;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    overflow: hidden;
+h1{
+    color:#C92A2A;
+    font-size:30px;
+    font-weight:800;
 }
 
-.logo-circle img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.2;
+.progress-container{
+    background:#ffe5e5;
+    height:20px;
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0;
 }
 
-.logo-text {
-    position: relative;
-    z-index: 2;
-    font-weight: 800;
-    color: #0b3d91;
-    text-align: center;
-    font-size: 12px;
-    padding: 10px;
-    line-height: 1.5;
-}
-
-h1 {
-    color: #0b3d91;
-    font-size: 32px;
-    font-weight: 800;
-    margin: 10px 0;
-}
-
-.story-title {
-    background: #f0e6d2;
-    display: inline-block;
-    padding: 10px 30px;
-    border-radius: 40px;
-    color: #8b5a2b;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.subtitle {
-    color: #4a5568;
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-/* Topic Tags */
-.topics-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.topic-tag {
-    background: #e8f0fe;
-    color: #0b3d91;
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 14px;
-    border: 2px solid #0b3d91;
-}
-
-.topic-tag.purple {
-    background: #f3e8ff;
-    color: #6b46c1;
-    border-color: #6b46c1;
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#FF6B6B;
+    transition:width 0.4s ease;
 }
 
 /* Timer */
-.timer {
-    background: #b43b3b;
-    color: #fff;
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-size: 24px;
-    font-weight: 800;
-    margin: 15px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.timer{
+    font-size:20px;
+    font-weight:700;
+    color:#C92A2A;
+    margin:10px 0;
 }
 
-/* Student Input Panel */
-.student-panel {
-    background: #f2f6ff;
-    padding: 30px;
-    border-radius: 20px;
-    margin: 20px 0 30px;
-    border: 2px dashed #0b3d91;
-    text-align: center;
+/* Grid */
+.game-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    margin-top:20px;
 }
 
-.student-input-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+.column{
+    background:#FFF5F5;
+    padding:20px;
+    border-radius:20px;
+    border:2px solid #FFB5B5;
 }
 
-.student-input-group input {
-    padding: 15px 25px;
-    border-radius: 30px;
-    border: 2px solid #b0c4ff;
-    font-size: 1rem;
-    outline: none;
-    min-width: 280px;
-    font-family: 'Anek Telugu', sans-serif;
-    background: white;
+.column h3{
+    text-align:center;
+    margin-bottom:15px;
+    color:#C92A2A;
 }
 
-.student-input-group input:focus {
-    border-color: #0b3d91;
-    box-shadow: 0 0 0 3px rgba(11,61,145,0.1);
+.item{
+    background:#fff;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    border-left:6px solid #FF6B6B;
+    transition:0.2s;
 }
 
-.student-input-group select {
-    padding: 15px 25px;
-    border-radius: 30px;
-    border: 2px solid #b0c4ff;
-    font-size: 1rem;
-    outline: none;
-    min-width: 200px;
-    font-family: 'Anek Telugu', sans-serif;
-    background: white;
-    cursor: pointer;
+.item:hover{
+    background:#ffe5e5;
 }
 
-.btn {
-    padding: 15px 35px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 700;
-    background: #0b3d91;
-    color: #fff;
-    transition: 0.2s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.item.selected{
+    background:#FF6B6B;
+    color:#fff;
 }
 
-.btn:hover {
-    background: #072c66;
-    transform: translateY(-2px);
+/* Buttons */
+.controls{
+    margin-top:20px;
+    text-align:center;
 }
 
-.btn-secondary {
-    background: #4a5568;
+button{
+    padding:10px 25px;
+    margin:5px;
+    border:none;
+    border-radius:25px;
+    font-weight:700;
+    cursor:pointer;
 }
 
-.btn-secondary:hover {
-    background: #2d3748;
+.next-btn{
+    background:#FF6B6B;
+    color:white;
 }
 
-.btn-success {
-    background: #2f855a;
+.prev-btn{
+    background:#555;
+    color:white;
 }
 
-.btn-success:hover {
-    background: #276749;
+/* Celebration */
+.celebration{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
 }
 
-.btn-purple {
-    background: #6b46c1;
+.confetti{
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:red;
+    animation:fall 3s linear infinite;
 }
 
-.btn-purple:hover {
-    background: #553c9a;
+@keyframes fall{
+    from{transform:translateY(-100px) rotate(0);}
+    to{transform:translateY(100vh) rotate(360deg);}
 }
 
-.btn-large {
-    padding: 18px 40px;
-    font-size: 1.2rem;
-}
-
-/* Student Info Display */
-.student-info-card {
-    background: linear-gradient(135deg, #0b3d91, #072c66);
-    color: white;
-    padding: 20px 30px;
-    border-radius: 50px;
-    margin: 20px 0;
-    display: inline-block;
-    font-size: 24px;
-    font-weight: 700;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.student-details {
-    background: #e8f0fe;
-    padding: 15px 25px;
-    border-radius: 40px;
-    margin: 15px 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: center;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 18px;
-    color: #0b3d91;
-    font-weight: 600;
-}
-
-/* Class Section Headers */
-.class-section {
-    margin: 20px 0 10px;
-    text-align: left;
-    font-size: 20px;
-    font-weight: 700;
-    color: #0b3d91;
-    border-left: 6px solid #0b3d91;
-    padding-left: 15px;
-}
-
-.student-buttons-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.student-btn {
-    padding: 8px 15px;
-    font-size: 14px;
-    background: #e8f0fe;
-    color: #0b3d91;
-    border: 2px solid #0b3d91;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.student-btn:hover {
-    background: #0b3d91;
-    color: white;
-    transform: translateY(-2px);
-}
-
-/* Vocabulary Matching Game Styles */
-.vocab-header {
-    background: linear-gradient(135deg, #6b46c1, #553c9a);
-    color: white;
-    padding: 25px;
-    border-radius: 20px;
-    margin: 20px 0;
-    text-align: center;
-}
-
-.vocab-header h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.vocab-stats {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 15px;
-    font-size: 18px;
-}
-
-.matching-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin: 30px 0;
-}
-
-.word-column, .meaning-column {
-    background: #f7f9ff;
-    padding: 20px;
-    border-radius: 20px;
-    border: 2px solid #cbd5e0;
-}
-
-.column-header {
-    text-align: center;
-    padding: 15px;
-    background: #0b3d91;
-    color: white;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    font-weight: 700;
-    font-size: 20px;
-}
-
-.word-item {
-    background: white;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    border-radius: 15px;
-    border-left: 6px solid #6b46c1;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    cursor: pointer;
-    transition: all 0.3s;
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.word-item:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background: #f0e6ff;
-}
-
-.word-item.selected {
-    background: #6b46c1;
-    color: white;
-    border-left-color: #ffd700;
-}
-
-.meaning-item {
-    background: white;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    border-radius: 15px;
-    border-right: 6px solid #0b3d91;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.meaning-item:hover {
-    transform: translateX(-5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background: #e6f0ff;
-}
-
-.meaning-item.selected {
-    background: #0b3d91;
-    color: white;
-    border-right-color: #ffd700;
-}
-
-.match-badge {
-    background: #2f855a;
-    color: white;
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.matched-pair {
-    background: #f0fff4;
-    border: 2px solid #2f855a;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.pairs-container {
-    background: #f7f9ff;
-    padding: 20px;
-    border-radius: 20px;
-    margin: 20px 0;
-}
-
-.pairs-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #2f855a;
-    margin-bottom: 15px;
-}
-
-/* Score Display */
-.score-badge {
-    background: #6b46c1;
-    color: #fff;
-    padding: 20px 50px;
-    border-radius: 40px;
-    font-size: 2rem;
-    font-weight: 800;
-    display: inline-block;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.feedback-section {
-    background: #fff3cd;
-    border-radius: 20px;
-    padding: 25px;
-    margin-top: 30px;
-    text-align: left;
-}
-
-/* Print Styles */
-@media print {
-    .student-panel, .btn, .paper-controls, .timer, .no-print {
-        display: none !important;
-    }
-    
-    .main-container {
-        box-shadow: none;
-        padding: 10px;
-        background: white;
-    }
-    
-    .word-item, .meaning-item {
-        break-inside: avoid;
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .matching-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .student-info-card {
-        font-size: 20px;
-        padding: 15px 20px;
-    }
-}
-
-.generated-date {
-    color: #718096;
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-/* Story Preview */
-.story-preview {
-    background: #fef9e7;
-    padding: 20px;
-    border-radius: 15px;
-    margin: 20px 0;
-    border-left: 6px solid #8b5a2b;
-    font-style: italic;
-    color: #5d3a1a;
-    max-height: 150px;
-    overflow-y: auto;
-}
-
-.butterfly-icon {
-    font-size: 24px;
-    margin: 0 5px;
+.score{
+    text-align:center;
+    font-size:28px;
+    font-weight:800;
+    color:#C92A2A;
+    margin-top:20px;
 }
 </style>
 </head>
 <body>
 
-<div class="main-container">
-    <!-- Header with Butterfly Theme -->
-    <div class="header">
-        <div class="logo-circle">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23f0f4ff'/%3E%3Ctext x='50' y='55' font-size='40' text-anchor='middle' fill='%230b3d91'%3E🦋%3C/text%3E%3C/svg%3E" alt="Butterfly Logo">
-            <div class="logo-text">
-                కందులాపురం బడి<br>
-                <span style="font-size:12px;">Kandulapuram School</span>
-            </div>
-        </div>
-        
-        <div class="story-title">
-            <span class="butterfly-icon">🦋</span> Three Butterflies | మూడు సీతాకోకచిలుకలు <span class="butterfly-icon">🦋</span>
-        </div>
-        
-        <h1>📚 Vocabulary Matching Game</h1>
-        <div class="subtitle">
-            <span class="te">కథలోని కష్టమైన పదాలు - అర్థాలు</span> | 
-            <span class="en">Difficult Words & Telugu Meanings</span>
-        </div>
-        
-        <!-- Topics -->
-        <div class="topics-container">
-            <span class="topic-tag purple">🎯 25 Word-Meaning Pairs</span>
-            <span class="topic-tag purple">🦋 Three Butterflies Story</span>
-            <span class="topic-tag purple">📝 Match & Learn</span>
-        </div>
-        
-        <!-- Story Preview -->
-        <div class="story-preview">
-            <small>📖 Story Preview:</small><br>
-            Three butterflies lived in a garden - ఒక తోటలో మూడు సీతాకోకచిలుకలు నివసించేవి. They were friends - అవి స్నేహితులు. One white, one red and one yellow - ఒకటి తెలుపు, ఒకటి ఎరుపు, మరొకటి పసుపు. They played, danced and sucked nectar - అవి ఆడుకునేవి, నృత్యం చేసేవి, పూల తేనెను తాగేవి...
-        </div>
+<div class="main">
+
+<div class="header">
+    <h1>📚 Vocabulary Matching Game</h1>
+    <div class="timer">⏱ Time: <span id="time">0</span> sec</div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
     </div>
 
-    <!-- Timer -->
-    <div style="text-align: center;" class="no-print">
-        <div class="timer" id="timer">⏳ 30:00</div>
-    </div>
-
-    <!-- Student Input Panel -->
-    <div class="student-panel no-print">
-        <h2 style="color: #0b3d91; margin-bottom: 20px;">👤 విద్యార్థి వివరాలు నమోదు చేయండి</h2>
-        <h3 style="color: #4a5568; margin-bottom: 25px;">Enter Student Details</h3>
-        
-        <div class="student-input-group">
-            <input type="text" id="studentNameTel" placeholder="తెలుగులో పేరు" value="యశ్విత">
-            <input type="text" id="studentNameEn" placeholder="English Name" value="Yaswitha">
-            <input type="text" id="rollNumber" placeholder="రోల్ నంబర్ / Roll Number" value="501">
-            <select id="classSelect">
-                <option value="5">తరగతి 5 | Class 5</option>
-                <option value="4">తరగతి 4 | Class 4</option>
-            </select>
-        </div>
-        
-        <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-            <button class="btn btn-large btn-purple" onclick="generateVocabularyGame()">
-                🦋 Start Vocabulary Game (25 Words)
-            </button>
-            <button class="btn btn-large btn-secondary" onclick="resetAndNewStudent()">
-                🔄 New Student
-            </button>
-        </div>
-        
-        <!-- Class V Students -->
-        <div class="class-section">✨ తరగతి 5 | Class V Students</div>
-        <div class="student-buttons-container">
-            <button class="student-btn" onclick="loadStudent('యశ్విత', 'Yaswitha', '501', '5')">యశ్విత (Yaswitha)</button>
-            <button class="student-btn" onclick="loadStudent('కల్యాణి', 'Kalyani', '502', '5')">కల్యాణి (Kalyani)</button>
-            <button class="student-btn" onclick="loadStudent('సాజిద', 'Sajida', '503', '5')">సాజిద (Sajida)</button>
-            <button class="student-btn" onclick="loadStudent('అస్మ', 'Asma', '504', '5')">అస్మ (Asma)</button>
-            <button class="student-btn" onclick="loadStudent('అతియ ఫాతిమ', 'Athiya Fathima', '505', '5')">అతియ ఫాతిమ (Athiya)</button>
-            <button class="student-btn" onclick="loadStudent('ప్రవల్లిక', 'Pravallika', '506', '5')">ప్రవల్లిక (Pravallika)</button>
-            <button class="student-btn" onclick="loadStudent('చంద్ర శేఖర్', 'Chandra Sekhar', '507', '5')">చంద్ర శేఖర్ (Chandra)</button>
-        </div>
-
-        <!-- Class IV Students -->
-        <div class="class-section">🌟 తరగతి 4 | Class IV Students</div>
-        <div class="student-buttons-container">
-            <button class="student-btn" onclick="loadStudent('వసంత', 'Vasantha', '401', '4')">వసంత (Vasantha)</button>
-            <button class="student-btn" onclick="loadStudent('గీతిక', 'Geethika', '402', '4')">గీతిక (Geethika)</button>
-            <button class="student-btn" onclick="loadStudent('అంజలి', 'Anjali', '403', '4')">అంజలి (Anjali)</button>
-            <button class="student-btn" onclick="loadStudent('సుమయ్య', 'Sumayya', '404', '4')">సుమయ్య (Sumayya)</button>
-            <button class="student-btn" onclick="loadStudent('యాస్మీన్', 'Yasmeen', '405', '4')">యాస్మీన్ (Yasmeen)</button>
-            <button class="student-btn" onclick="loadStudent('నిహారిక', 'Niharika', '406', '4')">నిహారిక (Niharika)</button>
-            <button class="student-btn" onclick="loadStudent('రిమ్ష', 'Rimsha', '407', '4')">రిమ్ష (Rimsha)</button>
-            <button class="student-btn" onclick="loadStudent('సంజయ్', 'Sanjay', '408', '4')">సంజయ్ (Sanjay)</button>
-            <button class="student-btn" onclick="loadStudent('శ్రీకాంత్', 'Srikanth', '409', '4')">శ్రీకాంత్ (Srikanth)</button>
-        </div>
-    </div>
-
-    <!-- Student Info Display (shown after generation) -->
-    <div id="studentInfoDisplay" style="display: none; text-align: center;"></div>
-
-    <!-- Vocabulary Game Container -->
-    <div id="vocabGameContainer"></div>
-    
-    <!-- Score Display -->
-    <div id="scoreDisplay" style="text-align: center;"></div>
+    <div>Page <span id="pageNum">1</span> / 5</div>
 </div>
 
-<script>
-// Total time: 30 minutes
-let totalTime = 30 * 60;
-let timerInterval;
-let currentGame = null;
-let selectedWordIndex = null;
+<div id="gameArea"></div>
 
-// Vocabulary Bank (25 difficult words from the story with Telugu meanings)
+<div class="controls">
+    <button class="prev-btn" onclick="prevPage()">⬅ Previous</button>
+    <button class="next-btn" onclick="nextPage()">Next ➡</button>
+</div>
+
+<div id="scoreArea"></div>
+
+</div>
+
+<div class="celebration" id="celebration"></div>
+
+<script>
+
+// =========================
+// DATA
+// =========================
 const vocabularyBank = [
-    { word: "butterfly", meaning: "సీతాకోకచిలుక", example: "Three butterflies lived" },
-    { word: "garden", meaning: "తోట", example: "lived in a garden" },
-    { word: "friends", meaning: "స్నేహితులు", example: "They were friends" },
-    { word: "white", meaning: "తెలుపు", example: "One was white" },
-    { word: "red", meaning: "ఎరుపు", example: "one red" },
-    { word: "yellow", meaning: "పసుపు", example: "the other yellow" },
-    { word: "played", meaning: "ఆడుకునేవి", example: "They played" },
-    { word: "danced", meaning: "నృత్యం చేసేవి", example: "and danced together" },
-    { word: "flew", meaning: "ఎగిరేవి", example: "They flew together" },
-    { word: "sucked", meaning: "తాగేవి", example: "sucked nectar" },
-    { word: "nectar", meaning: "తేనె", example: "nectar from flowers" },
-    { word: "flowers", meaning: "పూలు", example: "from the flowers" },
-    { word: "afternoon", meaning: "మధ్యాహ్నం", example: "One afternoon" },
-    { word: "suddenly", meaning: "అకస్మాత్తుగా", example: "suddenly grew dark" },
-    { word: "dark", meaning: "చీకటి", example: "grew dark" },
-    { word: "cold", meaning: "చల్లని", example: "cold wind blew" },
-    { word: "wind", meaning: "గాలి", example: "wind blew" },
-    { word: "rain", meaning: "వర్షం", example: "started raining" },
-    { word: "shelter", meaning: "ఆశ్రయం", example: "looked for shelter" },
-    { word: "sunflower", meaning: "పొద్దుతిరుగుడు పువ్వు", example: "saw a sunflower" },
-    { word: "curiously", meaning: "ఆసక్తిగా", example: "watching curiously" },
-    { word: "favourite", meaning: "ఇష్టమైన", example: "My favourite" },
-    { word: "dismay", meaning: "నిరాశ", example: "sending away in dismay" },
-    { word: "pebbles", meaning: "గులకరాళ్ళు", example: "like pebbles" },
-    { word: "lily", meaning: "కలువ పువ్వు", example: "white lily" },
-    { word: "petals", meaning: "రేకులు", example: "Open your petals" },
-    { word: "begged", meaning: "వేడుకున్నాయి", example: "the butterflies begged" },
-    { word: "cloudy", meaning: "మేఘావృతం", example: "still cloudy" },
-    { word: "sun", meaning: "సూర్యుడు", example: "The sun was watching" },
-    { word: "pleased", meaning: "సంతోషించాడు", example: "was pleased" },
-    { word: "love", meaning: "ప్రేమ", example: "the love and care" },
-    { word: "care", meaning: "శ్రద్ధ", example: "love and care" },
-    { word: "chased", meaning: "తరిమికొట్టాడు", example: "chased the clouds" },
-    { word: "clouds", meaning: "మేఘాలు", example: "chased the clouds" },
-    { word: "dried", meaning: "ఆరబెట్టింది", example: "dried the wings" },
-    { word: "wings", meaning: "రెక్కలు", example: "butterflies' wings" },
-    { word: "happy", meaning: "సంతోషంగా", example: "were happy again" },
-    { word: "evening", meaning: "సాయంత్రం", example: "till evening" },
-    { word: "night", meaning: "రాత్రి", example: "night fell" },
-    { word: "sleep", meaning: "నిద్ర", example: "went to sleep" },
-    { word: "together", meaning: "కలిసి", example: "went to sleep together" }
+{word:"excited", meaning:"ఉత్సాహంగా"},
+{word:"dawn", meaning:"తెల్లవారుజాము"},
+{word:"eagerly", meaning:"ఆత్రుతగా"},
+{word:"festival", meaning:"పండుగ"},
+{word:"narrow", meaning:"ఇరుకైన"},
+{word:"rocky", meaning:"రాళ్ళతో నిండిన"},
+{word:"uneven", meaning:"అసమానంగా"},
+{word:"wheelchair", meaning:"చక్రాల కుర్చీ"},
+{word:"skill", meaning:"నైపుణ్యం"},
+{word:"uniform", meaning:"యూనిఫాం"},
+{word:"committee", meaning:"కమిటీ"},
+{word:"panchayat", meaning:"పంచాయతీ"},
+{word:"bouquet", meaning:"పూలగుత్తి"},
+{word:"level", meaning:"చదును చేయడం"},
+{word:"insisted", meaning:"పట్టుబట్టాడు"},
+{word:"celebration", meaning:"వేడుక"},
+{word:"headmaster", meaning:"ప్రధానోపాధ్యాయుడు"},
+{word:"cane", meaning:"వెదురు"},
+{word:"consoled", meaning:"ఓదార్చింది"},
+{word:"astonished", meaning:"ఆశ్చర్యపోయాడు"},
+{word:"tears", meaning:"కన్నీళ్ళు"},
+{word:"weave", meaning:"అల్లడం"},
+{word:"differently-abled", meaning:"వికలాంగులు"},
+{word:"foothills", meaning:"కొండపాదులు"},
+{word:"newly paved", meaning:"కొత్తగా వేసిన"}
 ];
 
-// Take first 25 unique words
-const masterVocabulary = vocabularyBank.slice(0, 25);
+let currentPage = 0;
+let wordsPerPage = 5;
+let selectedWord = null;
+let totalMatches = 0;
+let timerInterval;
+let seconds = 0;
 
-function startTimer() {
-    if (timerInterval) clearInterval(timerInterval);
-    timerInterval = setInterval(() => {
-        let minutes = Math.floor(totalTime / 60);
-        let seconds = totalTime % 60;
-        
-        document.getElementById("timer").innerText = "⏳ " + 
-            (minutes < 10 ? "0" : "") + minutes + ":" + 
-            (seconds < 10 ? "0" : "") + seconds;
-        
-        if (totalTime <= 0) {
-            clearInterval(timerInterval);
-            alert("⏰ సమయం ముగిసింది! Time Up!");
-        }
-        totalTime--;
-    }, 1000);
+function shuffle(arr){
+    return arr.sort(()=>Math.random()-0.5);
 }
 
-// Load student with class parameter
-function loadStudent(telName, enName, roll, studentClass) {
-    document.getElementById('studentNameTel').value = telName;
-    document.getElementById('studentNameEn').value = enName;
-    document.getElementById('rollNumber').value = roll;
-    document.getElementById('classSelect').value = studentClass;
+let shuffled = shuffle([...vocabularyBank]);
+
+function startTimer(){
+    timerInterval = setInterval(()=>{
+        seconds++;
+        document.getElementById("time").textContent = seconds;
+    },1000);
 }
 
-// Reset for new student
-function resetAndNewStudent() {
-    document.getElementById('studentNameTel').value = '';
-    document.getElementById('studentNameEn').value = '';
-    document.getElementById('rollNumber').value = '';
-    document.getElementById('classSelect').value = '5';
-    document.getElementById('vocabGameContainer').innerHTML = '';
-    document.getElementById('scoreDisplay').innerHTML = '';
-    document.getElementById('studentInfoDisplay').style.display = 'none';
-    document.getElementById('studentInfoDisplay').innerHTML = '';
-    selectedWordIndex = null;
+function stopTimer(){
+    clearInterval(timerInterval);
 }
 
-// Shuffle array function
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
+function loadPage(){
+    const start = currentPage*wordsPerPage;
+    const pageData = shuffled.slice(start,start+5);
 
-// Generate vocabulary game
-function generateVocabularyGame() {
-    const telName = document.getElementById('studentNameTel').value.trim();
-    const enName = document.getElementById('studentNameEn').value.trim();
-    const rollNo = document.getElementById('rollNumber').value.trim();
-    const studentClass = document.getElementById('classSelect').value;
-    
-    if (!telName || !enName || !rollNo) {
-        alert('దయచేసి అన్ని వివరాలు నమోదు చేయండి / Please enter all details');
-        return;
-    }
-    
-    // Start timer
-    startTimer();
-    
-    // Get all 25 vocabulary items and shuffle them
-    const shuffledVocab = shuffleArray([...masterVocabulary]);
-    
-    // Create words list (shuffled)
-    const words = shuffledVocab.map(item => ({
-        word: item.word,
-        meaning: item.meaning,
-        example: item.example,
-        matched: false
-    }));
-    
-    // Create meanings list (shuffled separately)
-    const meanings = shuffleArray([...shuffledVocab]).map(item => ({
-        meaning: item.meaning,
-        word: item.word,
-        matched: false
-    }));
-    
-    // Store current game
-    currentGame = {
-        student: {
-            telName: telName,
-            enName: enName,
-            rollNo: rollNo,
-            class: studentClass
-        },
-        words: words,
-        meanings: meanings,
-        matches: [],
-        generatedDate: new Date().toLocaleString()
-    };
-    
-    // Display student info
-    document.getElementById('studentInfoDisplay').style.display = 'block';
-    document.getElementById('studentInfoDisplay').innerHTML = `
-        <div class="student-info-card">
-            👤 ${telName} (${enName}) | రోల్ ${rollNo} | Class ${studentClass}
-        </div>
-        <div class="student-details">
-            <span class="detail-item">📅 ${new Date().toLocaleDateString()}</span>
-            <span class="detail-item">⏱️ 30 Minutes</span>
-            <span class="detail-item">📝 Total Pairs: 25</span>
-            <span class="detail-item">🦋 Three Butterflies</span>
-        </div>
-    `;
-    
-    // Display the game
-    displayVocabularyGame(currentGame);
-}
+    const meanings = shuffle([...pageData]);
 
-// Display vocabulary matching game
-function displayVocabularyGame(game) {
-    let html = `
-        <div class="vocab-header">
-            <h2>🦋 మ్యాచింగ్ గేమ్ | Matching Game</h2>
-            <p>Click a word, then click its meaning to match</p>
-            <div class="vocab-stats">
-                <span>📊 Matched: <span id="matchedCount">0</span>/25</span>
-                <span>🎯 Selected: <span id="selectedWord">None</span></span>
-            </div>
-        </div>
-        
-        <div class="paper-header">
-            <div class="student-info">
-                📋 ${game.student.telName} (${game.student.enName}) - Class ${game.student.class}
-                <div class="generated-date">Generated: ${game.generatedDate}</div>
-            </div>
-            <div class="paper-controls no-print">
-                <button class="btn btn-secondary" onclick="resetGame()">
-                    🔄 New Set
-                </button>
-                <button class="btn" onclick="window.print()">
-                    🖨️ Print Game
-                </button>
-            </div>
-        </div>
-        
-        <div class="matching-grid">
-            <div class="word-column">
-                <div class="column-header">📝 ENGLISH WORDS</div>
-                <div id="wordsList">
-    `;
-    
-    game.words.forEach((item, index) => {
-        if (!item.matched) {
-            html += `
-                <div class="word-item" onclick="selectWord(${index})" id="word-${index}">
-                    <span>${item.word}</span>
-                    <small style="opacity:0.7; font-style:italic;">${item.example}</small>
-                </div>
-            `;
-        }
+    let html = `<div class="game-grid">`;
+
+    html += `<div class="column"><h3>English Words</h3>`;
+    pageData.forEach((item,i)=>{
+        html+=`<div class="item" onclick="selectWord(${i})" id="w${i}">${item.word}</div>`;
     });
-    
-    html += `
-                </div>
-            </div>
-            <div class="meaning-column">
-                <div class="column-header">📖 తెలుగు అర్థాలు</div>
-                <div id="meaningsList">
-    `;
-    
-    game.meanings.forEach((item, index) => {
-        if (!item.matched) {
-            html += `
-                <div class="meaning-item" onclick="selectMeaning(${index})" id="meaning-${index}">
-                    <span>${item.meaning}</span>
-                </div>
-            `;
-        }
+    html+=`</div>`;
+
+    html += `<div class="column"><h3>తెలుగు అర్థాలు</h3>`;
+    meanings.forEach((item,i)=>{
+        html+=`<div class="item" onclick="selectMeaning('${item.meaning}',this)">${item.meaning}</div>`;
     });
-    
-    html += `
-                </div>
-            </div>
-        </div>
-        
-        <div class="pairs-container" id="pairsContainer">
-            <div class="pairs-title">✅ మ్యాచ్ అయిన జతలు | Matched Pairs</div>
-            <div id="matchedPairsList"></div>
-        </div>
-        
-        <div style="text-align: center; margin: 30px 0;" class="no-print">
-            <button class="btn btn-large btn-success" onclick="evaluateGame()">
-                ✅ Finish & Check Answers
-            </button>
-        </div>
-    `;
-    
-    document.getElementById("vocabGameContainer").innerHTML = html;
-    updateMatchedPairs();
+    html+=`</div></div>`;
+
+    document.getElementById("gameArea").innerHTML = html;
+
+    document.getElementById("pageNum").textContent = currentPage+1;
+
+    updateProgress();
 }
 
-// Select a word
-function selectWord(index) {
-    if (!currentGame) return;
-    
-    // Deselect previous word
-    if (selectedWordIndex !== null) {
-        const prevWord = document.getElementById(`word-${selectedWordIndex}`);
-        if (prevWord) prevWord.classList.remove('selected');
-    }
-    
-    selectedWordIndex = index;
-    const wordElement = document.getElementById(`word-${index}`);
-    if (wordElement) wordElement.classList.add('selected');
-    
-    document.getElementById('selectedWord').textContent = currentGame.words[index].word;
+function selectWord(i){
+    document.querySelectorAll(".item").forEach(e=>e.classList.remove("selected"));
+    selectedWord = i;
+    document.getElementById("w"+i).classList.add("selected");
 }
 
-// Select a meaning and try to match
-function selectMeaning(meaningIndex) {
-    if (!currentGame || selectedWordIndex === null) {
-        alert('ముందు ఒక పదాన్ని ఎంచుకోండి / Please select a word first');
-        return;
+function selectMeaning(meaning,element){
+    if(selectedWord===null){ alert("Select word first"); return; }
+
+    const correct = shuffled[currentPage*5+selectedWord];
+
+    if(correct.meaning===meaning){
+        element.style.background="#28a745";
+        document.getElementById("w"+selectedWord).style.background="#28a745";
+        playCorrect();
+        totalMatches++;
+        updateProgress();
+    }else{
+        playWrong();
+        alert("Wrong match!");
     }
-    
-    const word = currentGame.words[selectedWordIndex];
-    const meaning = currentGame.meanings[meaningIndex];
-    
-    if (word.matched || meaning.matched) {
-        alert('ఈ పదం ఇప్పటికే మ్యాచ్ అయింది / This item is already matched');
-        return;
-    }
-    
-    // Check if they match
-    if (word.meaning === meaning.meaning) {
-        // Mark as matched
-        word.matched = true;
-        meaning.matched = true;
-        
-        currentGame.matches.push({
-            word: word.word,
-            meaning: word.meaning,
-            example: word.example
-        });
-        
-        // Remove from display
-        document.getElementById(`word-${selectedWordIndex}`).remove();
-        document.getElementById(`meaning-${meaningIndex}`).remove();
-        
-        // Clear selection
-        document.getElementById(`word-${selectedWordIndex}`)?.classList.remove('selected');
-        selectedWordIndex = null;
-        document.getElementById('selectedWord').textContent = 'None';
-        
-        // Update matched pairs display
-        updateMatchedPairs();
-        
-        // Check if game is complete
-        if (currentGame.matches.length === 25) {
-            alert('🎉 అద్భుతం! మీరు అన్ని పదాలను సరిగ్గా మ్యాచ్ చేశారు! / Excellent! You matched all words!');
-        }
-    } else {
-        alert('❌ తప్పు జత! మళ్ళీ ప్రయత్నించండి / Wrong match! Try again');
-        // Clear selection
-        document.getElementById(`word-${selectedWordIndex}`)?.classList.remove('selected');
-        selectedWordIndex = null;
-        document.getElementById('selectedWord').textContent = 'None';
+
+    selectedWord=null;
+}
+
+function nextPage(){
+    if(currentPage<4){
+        currentPage++;
+        loadPage();
+    }else{
+        finishGame();
     }
 }
 
-// Update matched pairs display
-function updateMatchedPairs() {
-    if (!currentGame) return;
-    
-    document.getElementById('matchedCount').textContent = currentGame.matches.length;
-    
-    let pairsHtml = '';
-    currentGame.matches.forEach((match, index) => {
-        pairsHtml += `
-            <div class="matched-pair">
-                <span><strong>${index + 1}.</strong> ${match.word}</span>
-                <span>➡️</span>
-                <span><strong>${match.meaning}</strong></span>
-                <small style="color: #718096;">(${match.example})</small>
-            </div>
-        `;
-    });
-    
-    if (currentGame.matches.length === 0) {
-        pairsHtml = '<p style="text-align: center; color: #718096;">No matches yet. Start matching!</p>';
-    }
-    
-    document.getElementById('matchedPairsList').innerHTML = pairsHtml;
-}
-
-// Reset game with new set of words
-function resetGame() {
-    if (currentGame) {
-        generateVocabularyGame();
+function prevPage(){
+    if(currentPage>0){
+        currentPage--;
+        loadPage();
     }
 }
 
-// Evaluate the game
-function evaluateGame() {
-    if (!currentGame) return;
-    
-    const totalMatches = currentGame.matches.length;
-    const percentage = (totalMatches / 25) * 100;
-    
-    let gradeMessage = percentage >= 80 ? '🏆 అద్భుతం! Excellent!' :
-                      percentage >= 60 ? '🎉 చాలా మంచిది! Very Good!' :
-                      percentage >= 40 ? '👍 మంచిది! Good!' :
-                      '📚 మరింత సాధన అవసరం! Practice More!';
-    
-    let feedback = `
-        <div style="text-align: center;">
-            <div class="score-badge">
-                🎯 ${totalMatches}/25 (${percentage}%)<br>
-                <small style="font-size: 18px;">${gradeMessage}</small>
-            </div>
-        </div>
-    `;
-    
-    // Show unmatched words if any
-    if (totalMatches < 25) {
-        const unmatchedWords = currentGame.words.filter(w => !w.matched);
-        
-        feedback += '<div class="feedback-section"><h3 style="color:#856404;">📋 మ్యాచ్ కాని పదాలు / Unmatched Words:</h3>';
-        
-        unmatchedWords.forEach((item, i) => {
-            feedback += `
-                <div style="padding: 8px; border-bottom: 1px solid #ffe69c;">
-                    <strong>${item.word}</strong> ➡️ <span style="color:#0b3d91;">${item.meaning}</span>
-                    <small> (${item.example})</small>
-                </div>
-            `;
-        });
-        
-        feedback += '</div>';
-    }
-    
-    document.getElementById("scoreDisplay").innerHTML = feedback;
+function updateProgress(){
+    const percent = (totalMatches/25)*100;
+    document.getElementById("progressBar").style.width = percent+"%";
 }
 
-// Start timer when page loads
-window.onload = function() {
-    startTimer();
-    loadStudent('యశ్విత', 'Yaswitha', '501', '5');
-};
+function finishGame(){
+    stopTimer();
+    document.getElementById("gameArea").innerHTML="";
+    document.getElementById("scoreArea").innerHTML=
+        `<div class="score">🎉 Score: ${totalMatches}/25 <br> ⏱ Time: ${seconds} sec</div>`;
+    celebration();
+}
+
+// Sounds
+function playCorrect(){
+    new Audio("https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg").play();
+}
+
+function playWrong(){
+    new Audio("https://actions.google.com/sounds/v1/cartoon/boing.ogg").play();
+}
+
+// Celebration
+function celebration(){
+    const container=document.getElementById("celebration");
+    for(let i=0;i<150;i++){
+        const div=document.createElement("div");
+        div.classList.add("confetti");
+        div.style.left=Math.random()*100+"%";
+        div.style.background=`hsl(${Math.random()*360},100%,50%)`;
+        div.style.animationDuration=(Math.random()*3+2)+"s";
+        container.appendChild(div);
+    }
+}
+
+startTimer();
+loadPage();
+
 </script>
-
-<!-- Watermark for print -->
-<div class="watermark no-print">🦋</div>
-
 </body>
 </html>
